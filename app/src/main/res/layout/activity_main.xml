@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.danilovav.moonshinedistiller.MainActivity"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="81dp">
+
+    <TextView
+        android:id="@+id/tvBeforeTails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="11dp"
+        android:layout_marginStart="11dp"
+        android:text="@string/strBeforeTails"
+        app:layout_constraintBaseline_toBaselineOf="@+id/edtBeforTails"
+        app:layout_constraintLeft_toRightOf="@+id/edtBeforTails"
+        tools:layout_constraintBaseline_creator="1"
+        tools:layout_constraintLeft_creator="1" />
+
+    <TextView
+        android:id="@+id/tvBeforeTailsOut"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tvBeforeTails"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintBaseline_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="44dp"
+        android:layout_height="wrap_content"
+        android:text="@string/str3Dots"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tvBeforeTailsOut"
+        app:layout_constraintLeft_toLeftOf="@+id/btnBody"
+        app:layout_constraintRight_toRightOf="@+id/btnBody"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1" />
+
+    <EditText
+        android:id="@+id/edtBeforTails"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="5"
+        android:inputType="numberDecimal"
+        android:text="5"
+        app:layout_constraintLeft_toLeftOf="@+id/edtBody"
+        app:layout_constraintTop_toBottomOf="@+id/edtBody" />
+
+    <TextView
+        android:id="@+id/tvAlc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/strAclRAW"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvInitCube" />
+
+    <EditText
+        android:id="@+id/edtAlc01"
+        android:layout_width="76dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Alc %"
+        android:inputType="numberDecimal"
+        android:text="100"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tvAlc"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1" />
+
+    <TextView
+        android:id="@+id/tvAlcV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="15dp"
+        android:text="@string/strRAW_V"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtAlc01"
+        tools:layout_constraintTop_creator="1" />
+
+    <EditText
+        android:id="@+id/edtAlcV"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:text="3000"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tvAlcV"
+        app:layout_constraintLeft_toLeftOf="@+id/edtAlc01"
+        app:layout_constraintRight_toRightOf="@+id/edtAlc01"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1" />
+
+    <TextView
+        android:id="@+id/tvWaterV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="15dp"
+        android:text="@string/strWater_V"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtAlcV"
+        tools:layout_constraintTop_creator="1" />
+
+    <EditText
+        android:id="@+id/edtWaterV"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:text="3000"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tvWaterV"
+        app:layout_constraintLeft_toLeftOf="@+id/edtAlcV"
+        app:layout_constraintRight_toRightOf="@+id/edtAlcV"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1" />
+
+    <TextView
+        android:id="@+id/tvInitCube"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:text="@string/strInitCube"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
+
+    <TextView
+        android:id="@+id/tvAlcInCube"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/strAlcInCube"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtWaterV"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintTop_creator="1" />
+
+    <TextView
+        android:id="@+id/tvVolAbsAlc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/strValAbsAlc"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAlcInCube"
+        tools:layout_constraintTop_creator="1" />
+
+    <TextView
+        android:id="@+id/tvAlcInCubeOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="7dp"
+        android:layout_marginStart="7dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tvAlcInCube"
+        app:layout_constraintLeft_toRightOf="@+id/edtWaterV"
+        tools:layout_constraintLeft_creator="1" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:layout_marginBottom="21dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="@+id/tvCurSet"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintTop_toBottomOf="@+id/tvVolAbsAlc"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp" />
+    <TextView
+        android:id="@+id/tvCurSet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/strTitleFractions"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvVolAbsAlc"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1"
+        app:layout_constraintHorizontal_bias="0.503" />
+
+    <Button
+        android:id="@+id/btnCalcCube"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="7dp"
+        android:onClick="onClickCalculate"
+        android:text="@string/strCalculateCube"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintTop_creator="1"
+        app:layout_constraintBaseline_toBaselineOf="@+id/edtWaterV" />
+
+    <TextView
+        android:id="@+id/tvHeads"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/strHeads"
+        android:layout_marginStart="11dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/edtHeads"
+        tools:layout_constraintBaseline_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toRightOf="@+id/edtHeads"
+        android:layout_marginLeft="11dp" />
+
+    <TextView
+        android:id="@+id/tvAfterHeads"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        android:text="@string/strAfterHeads"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toRightOf="@+id/edtAfterHeads"
+        android:layout_marginLeft="11dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/edtAfterHeads" />
+
+    <TextView
+        android:id="@+id/tvHeadsOut"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tvHeads" />
+
+    <TextView
+        android:id="@+id/tvAfterHeadsOut"
+        android:layout_width="40dp"
+        android:layout_height="17dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tvAfterHeads" />
+
+    <TextView
+        android:id="@+id/tvBodyOut"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tvBody"
+        tools:layout_constraintBaseline_creator="1"
+        tools:layout_constraintLeft_creator="1" />
+
+    <TextView
+        android:id="@+id/tvVolAbsAlcOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tvVolAbsAlc"
+        app:layout_constraintLeft_toLeftOf="@+id/tvAlcInCubeOut"
+        tools:layout_constraintLeft_creator="1" />
+
+    <Button
+        android:id="@+id/btnAfterHeads"
+        android:layout_width="44dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="1dp"
+        android:layout_marginRight="1dp"
+        android:text="@string/str3Dots"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tvAfterHeadsOut"
+        app:layout_constraintRight_toRightOf="@+id/btnHeads"
+        tools:layout_constraintRight_creator="1"
+        android:layout_marginLeft="0dp"
+        app:layout_constraintLeft_toLeftOf="@+id/btnHeads" />
+
+    <EditText
+        android:id="@+id/edtBody"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="70"
+        android:inputType="numberDecimal"
+        android:text="70"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintRight_toRightOf="@+id/edtAfterHeads"
+        app:layout_constraintTop_toBottomOf="@+id/edtAfterHeads"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/edtAfterHeads" />
+
+    <TextView
+        android:id="@+id/tvBody"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="11dp"
+        android:layout_marginStart="11dp"
+        android:text="@string/strBody"
+        app:layout_constraintBaseline_toBaselineOf="@+id/edtBody"
+        app:layout_constraintLeft_toRightOf="@+id/edtBody"
+        tools:layout_constraintBaseline_creator="1"
+        tools:layout_constraintLeft_creator="1" />
+
+    <Button
+        android:id="@+id/btnBody"
+        android:layout_width="44dp"
+        android:layout_height="wrap_content"
+        android:text="@string/str3Dots"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tvBodyOut"
+        app:layout_constraintLeft_toLeftOf="@+id/btnAfterHeads"
+        app:layout_constraintRight_toRightOf="@+id/btnAfterHeads"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1" />
+
+    <EditText
+        android:id="@+id/edtHeads"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="3"
+        android:inputType="numberDecimal"
+        android:text="3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.025"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCurSet"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btnHeads"
+        android:layout_width="44dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="6dp"
+        android:layout_marginRight="6dp"
+        android:text="@string/str3Dots"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tvHeadsOut"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintRight_creator="1" />
+
+    <EditText
+        android:id="@+id/edtAfterHeads"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="7"
+        android:inputType="numberDecimal"
+        android:text="7"
+        app:layout_constraintTop_toBottomOf="@+id/edtHeads"
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintRight_toRightOf="@+id/edtHeads"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/edtHeads" />
+
+    <EditText
+        android:id="@+id/edtTails"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="10"
+        android:inputType="numberDecimal"
+        android:text="10"
+        app:layout_constraintLeft_toLeftOf="@+id/edtBeforTails"
+        app:layout_constraintTop_toBottomOf="@+id/edtBeforTails" />
+
+    <TextView
+        android:id="@+id/tvTails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="11dp"
+        android:layout_marginStart="11dp"
+        android:text="@string/strTails"
+        app:layout_constraintBaseline_toBaselineOf="@+id/edtTails"
+        app:layout_constraintLeft_toRightOf="@+id/edtTails"
+        tools:layout_constraintLeft_creator="1" />
+
+    <TextView
+        android:id="@+id/tvTailsOut"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tvTails"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1" />
+
+    <Button
+        android:id="@+id/btnTails"
+        android:layout_width="44dp"
+        android:layout_height="wrap_content"
+        android:text="@string/str3Dots"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tvTailsOut"
+        app:layout_constraintLeft_toLeftOf="@+id/button"
+        app:layout_constraintRight_toRightOf="@+id/button"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1" />
+
+</android.support.constraint.ConstraintLayout>
