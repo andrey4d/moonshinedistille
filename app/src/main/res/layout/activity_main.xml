@@ -32,13 +32,13 @@
         tools:layout_constraintRight_creator="1" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/dotbtnBeforeTails"
         android:layout_width="44dp"
         android:layout_height="wrap_content"
         android:text="@string/str3Dots"
         app:layout_constraintBaseline_toBaselineOf="@+id/tvBeforeTailsOut"
-        app:layout_constraintLeft_toLeftOf="@+id/btnBody"
-        app:layout_constraintRight_toRightOf="@+id/btnBody"
+        app:layout_constraintLeft_toLeftOf="@+id/dotbtnBody"
+        app:layout_constraintRight_toRightOf="@+id/dotbtnBody"
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintRight_creator="1" />
 
@@ -284,17 +284,18 @@
         tools:layout_constraintLeft_creator="1" />
 
     <Button
-        android:id="@+id/btnAfterHeads"
+        android:id="@+id/dotbtnAfterHeads"
         android:layout_width="44dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="1dp"
         android:layout_marginRight="1dp"
         android:text="@string/str3Dots"
         app:layout_constraintBaseline_toBaselineOf="@+id/tvAfterHeadsOut"
-        app:layout_constraintRight_toRightOf="@+id/btnHeads"
+        app:layout_constraintRight_toRightOf="@+id/dotbtnHeads"
         tools:layout_constraintRight_creator="1"
         android:layout_marginLeft="0dp"
-        app:layout_constraintLeft_toLeftOf="@+id/btnHeads" />
+        app:layout_constraintLeft_toLeftOf="@+id/dotbtnHeads"
+        app:layout_constraintHorizontal_bias="0.0" />
 
     <EditText
         android:id="@+id/edtBody"
@@ -324,15 +325,14 @@
         tools:layout_constraintLeft_creator="1" />
 
     <Button
-        android:id="@+id/btnBody"
+        android:id="@+id/dotbtnBody"
         android:layout_width="44dp"
         android:layout_height="wrap_content"
         android:text="@string/str3Dots"
-        app:layout_constraintBaseline_toBaselineOf="@+id/tvBodyOut"
-        app:layout_constraintLeft_toLeftOf="@+id/btnAfterHeads"
-        app:layout_constraintRight_toRightOf="@+id/btnAfterHeads"
-        tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1" />
+        app:layout_constraintLeft_toLeftOf="@+id/dotbtnAfterHeads"
+        app:layout_constraintRight_toRightOf="@+id/dotbtnAfterHeads"
+        tools:layout_editor_absoluteY="324dp"
+        tools:layout_editor_absoluteX="310dp" />
 
     <EditText
         android:id="@+id/edtHeads"
@@ -351,11 +351,11 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/btnHeads"
+        android:id="@+id/dotbtnHeads"
         android:layout_width="44dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="6dp"
-        android:layout_marginRight="6dp"
+        android:layout_marginRight="-2dp"
         android:text="@string/str3Dots"
         app:layout_constraintBaseline_toBaselineOf="@+id/tvHeadsOut"
         app:layout_constraintRight_toRightOf="parent"
@@ -408,13 +408,13 @@
         tools:layout_constraintRight_creator="1" />
 
     <Button
-        android:id="@+id/btnTails"
+        android:id="@+id/dotbtnTails"
         android:layout_width="44dp"
         android:layout_height="wrap_content"
         android:text="@string/str3Dots"
         app:layout_constraintBaseline_toBaselineOf="@+id/tvTailsOut"
-        app:layout_constraintLeft_toLeftOf="@+id/button"
-        app:layout_constraintRight_toRightOf="@+id/button"
+        app:layout_constraintLeft_toLeftOf="@+id/dotbtnBeforeTails"
+        app:layout_constraintRight_toRightOf="@+id/dotbtnBeforeTails"
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintRight_creator="1" />
 

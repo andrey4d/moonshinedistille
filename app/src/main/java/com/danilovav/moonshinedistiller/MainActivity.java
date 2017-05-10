@@ -1,5 +1,6 @@
 package com.danilovav.moonshinedistiller;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,10 +15,12 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView tvAlcInCubeOut;
     private TextView tvVolAbsAlcOut;
+    private TextView tvHeadsOut;
 
     private EditText edtAlc;
     private EditText edtAlcV;
     private EditText edtWaterV;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,14 +46,46 @@ public class MainActivity extends AppCompatActivity {
        tvVolAbsAlcOut.setText(String.valueOf(calculate.getmAbsAlc()));
        Toast.makeText(getApplicationContext(),"Calculate!",Toast.LENGTH_SHORT).show();
     }
+
+    public void onClick3dotButton(View view){
+        Intent intent = new Intent(this, HeadsActivity.class);
+
+        switch (view.getId()){
+            case R.id.dotbtnHeads :
+                startActivityForResult(intent, Constants.REQUEST_CODE_HEADS);
+                break;
+            case R.id.dotbtnAfterHeads :
+                break;
+            case R.id.dotbtnBody :
+                break;
+            case R.id.dotbtnBeforeTails :
+                break;
+            case R.id.dotbtnTails :
+                break;
+        }
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (data == null) {return;}
+
+        switch (requestCode){
+            case Constants.REQUEST_CODE_HEADS:
+                int mHeads = data.getIntExtra(Constants.HAEDS, 0);
+                tvHeadsOut.setText(Integer.toString(mHeads));
+                break;
+        }
+    }
 void InitLayoutObject(){
     tvAlcInCubeOut = (TextView)findViewById(R.id.tvAlcInCubeOut);
     tvVolAbsAlcOut = (TextView)findViewById(R.id.tvVolAbsAlcOut);
+    tvHeadsOut     = (TextView)findViewById(R.id.tvHeadsOut);
 
     edtAlc    = (EditText)findViewById(R.id.edtAlc01);
-
     edtAlcV   = (EditText)findViewById(R.id.edtAlcV);
     edtWaterV = (EditText)findViewById(R.id.edtWaterV);
+
+
+
 }
 
 public void hidekeybord(){
