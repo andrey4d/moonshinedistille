@@ -19,6 +19,10 @@ public class Constants {
     final static public int REQUEST_CODE_TAILS = 5;
 
     final static public String HAEDS = "Heads";
+    final static public String AHEADS = "AfterHeads";
+    final static public String BODY = "Body";
+    final static public String BTAILS = "BeforeTails";
+    final static public String TAILS = "Tails";
 
 
     public static String formatFloatToString(final float f)
