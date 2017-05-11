@@ -9,12 +9,17 @@
     tools:layout_editor_absoluteX="0dp">
 
     <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/strHeadsFraction"
-        tools:layout_editor_absoluteY="16dp"
-        tools:layout_editor_absoluteX="130dp" />
+     android:id="@+id/tvTitle"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:text="@string/strHeadsFraction"
+     app:layout_constraintTop_toTopOf="parent"
+     android:layout_marginTop="8dp"
+     android:layout_marginRight="8dp"
+     app:layout_constraintRight_toRightOf="parent"
+     android:layout_marginLeft="8dp"
+     app:layout_constraintLeft_toLeftOf="parent" />
+
 
     <TextView
         android:id="@+id/tvVolume"
@@ -163,16 +168,16 @@
         app:layout_constraintHorizontal_bias="0.0" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/strSave"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="32dp" />
+        android:layout_marginBottom="30dp" />
 
-    <view
+    <View
         android:layout_width="2dp"
         android:layout_height="0dp"
         android:background="@color/colorPrimary"
@@ -182,6 +187,6 @@
         android:layout_marginBottom="32dp"
         android:layout_marginTop="16dp"
         app:layout_constraintTop_toBottomOf="@+id/tvTitle"
-        app:layout_constraintBottom_toTopOf="@+id/button2" />
+        app:layout_constraintBottom_toTopOf="@+id/btnSave" />
 
 </android.support.constraint.ConstraintLayout>
