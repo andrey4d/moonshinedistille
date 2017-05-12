@@ -30,4 +30,7 @@
     <string name="strTailsFraction">Tails Fraction</string>
     <string name="strSave">Save</string>
     <string name="strCubeBottomBalance">Bottom Balance the distillation cube, ml</string>
+    <string name="strPercent">%</string>
+    <string name="strMl">ml</string>
+    <string name="strCubeBotton">Bottoms</string>
 </resources>

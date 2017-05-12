@@ -1,6 +1,7 @@
 package com.danilovav.moonshinedistiller;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText edtAlcV;
     private EditText edtWaterV;
 
+    private SharedPreferences sPref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         calculate = new Calculate(); // Создание объекта из класа калькулятор
         InitLayoutObject(); // Инициализация ТекстВью и ЕдитТекст на разметке
 
-
+       loadData(Constants.KEY_TEST);
     }
 
    public void onClickCalculate(View view){
@@ -82,26 +84,33 @@ public class MainActivity extends AppCompatActivity {
         if (data == null) {return;}
 
         int mIntentExtraVoluem = data.getIntExtra(Constants.FRACTION_VOLUME, Constants.DEF_INT_NULL);  // Объем фракции
-        int mIntentExtraAlc= data.getIntExtra(Constants.FRACTION_ALC, Constants.DEF_INT_NULL);         // % спирта в фракции
+        int mIntentExtraAlc= data.getIntExtra(Constants.FRACTION_ALC, Constants.DEF_INT_NULL);         // абсолютный спирт
+
+        String strOutFraction = String.valueOf(mIntentExtraVoluem)+" "+getString(R.string.strMl)+" "
+                +String.valueOf(calculate.getAlcFraction(mIntentExtraVoluem,mIntentExtraAlc))+
+                " "+getString(R.string.strPercent);
 
         switch (requestCode){
             case Constants.REQUEST_CODE_HEADS:
-                 tvHeadsOut.setText(String.valueOf(mIntentExtraVoluem));
+                 tvHeadsOut.setText(strOutFraction);
+
                 break;
             case Constants.REQUEST_CODE_AFTER_HEADS:
-                tvAfterHeadsOut.setText(String.valueOf(mIntentExtraVoluem));
+                tvAfterHeadsOut.setText(strOutFraction);
                 break;
             case Constants.REQUEST_CODE_BODY:
-                tvBodyOut.setText(String.valueOf(mIntentExtraVoluem));
+                tvBodyOut.setText(strOutFraction);
                 break;
             case Constants.REQUEST_CODE_BEFORE_TAILS:
-                tvBeforeTailsOut.setText(String.valueOf(mIntentExtraVoluem));
+                tvBeforeTailsOut.setText(strOutFraction);
                 break;
             case Constants.REQUEST_CODE_TAILS:
-                tvTailsOut.setText(String.valueOf(mIntentExtraVoluem));
+                tvTailsOut.setText(strOutFraction);
                 break;
         }
     }
+
+
 void InitLayoutObject(){
     tvAlcInCubeOut  = (TextView)findViewById(R.id.tvAlcInCubeOut);
     tvVolAbsAlcOut  = (TextView)findViewById(R.id.tvVolAbsAlcOut);
@@ -129,4 +138,27 @@ public void hidekeybord(){
         super.onSaveInstanceState(outState);
         outState.putInt(Constants.KEY_TEST, 40);
     }
+
+    private void saveData(String key) {
+        sPref = getPreferences(MODE_PRIVATE);
+        SharedPreferences.Editor spEditor = sPref.edit();
+        spEditor.putString("ALC",       edtAlc.getText().toString());
+        spEditor.putString("RAWVOL",    edtAlcV.getText().toString());
+        spEditor.putString("WATERVOL",  edtWaterV.getText().toString());
+        spEditor.commit();
+    }
+
+    void loadData(String key) {
+        sPref = getPreferences(MODE_PRIVATE);
+        edtAlc.setText(sPref.getString("ALC",           String.valueOf(Constants.DEF_ACL_RAW)));
+        edtAlcV.setText(sPref.getString("RAWVOL",       String.valueOf(Constants.DEF_VAL_ACL_RAW)));
+        edtWaterV.setText(sPref.getString("WATERVOL",   String.valueOf(Constants.DEF_VAL_WATER)));
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        saveData(Constants.KEY_TEST);
+    }
+
 }
+

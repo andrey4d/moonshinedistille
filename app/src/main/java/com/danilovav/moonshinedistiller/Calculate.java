@@ -85,6 +85,15 @@ public class Calculate {
         if(mText.isEmpty()) {return "0";}
         return  mText;
     }
- }
+    //расчет объема фракции из абсалютного спирта фракции
+    public int getVlolumeFractions(int volAbsAlcogolFraction, int fractionAlcogol) {
+        return (volAbsAlcogolFraction/fractionAlcogol*100);
+    }
+   // % спирта во фракции
+    public int getAlcFraction(int volFraction, int absAlcFraction){
+        return(absAlcFraction*100/volFraction);
+    }
+
+}
 
 
