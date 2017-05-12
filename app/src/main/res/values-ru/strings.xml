@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Самогонка перегока :-)</string>
+    <string name="strPercent">%</string>
+    <string name="strMl">мл</string>
+    <string name="strSave">Сохранить</string>
+    <string name="strTails">%, Хвостов</string>
+    <string name="strTailsBTN">Хвосты</string>
+    <string name="strTitleFractions">Фракции</string>
+    <string name="strValAbsAlc">Объем абсалютного спирта, мл</string>
+    <string name="strWater_V">Объем воды, мл</string>
+    <string name="strVolume">Объем</string>
+    <string name="strAHeadsFraction">Подголовье</string>
+    <string name="strAclRAW">СС, %</string>
+    <string name="strAfterHeads">%, подголовья</string>
+    <string name="str3Dots">...</string>
+    <string name="strAfterHeadsBTN">Подголовья</string>
+    <string name="strAlc">Спирт</string>
+    <string name="strBodyBTN">Тело</string>
+    <string name="strCalculateCube">Рассчитать</string>
+    <string name="strHeads">%, Голов</string>
+    <string name="strHeadsBTN">Головы</string>
+    <string name="strTailsFraction">Хвостовая фракция</string>
+    <string name="strHeadsFraction">Головная фракция</string>
+    <string name="strInitCube"></string>
+    <string name="strCubeBottomBalance">Кубовой остаток, мл</string>
+    <string name="strBodyFraction">Фракция тела</string>
+    <string name="strBody">%, Тела</string>
+    <string name="strBeforeTailsBTN">Предхвостие</string>
+    <string name="strBeforeTails">%, Предхвостий</string>
+    <string name="strBeforeTailFraction">Фракция предхвостий</string>
+    <string name="ValAbsAlcCur">Объем абсолютного спират в кубе, мл</string>
+    <string name="AlcInCubeCur">Сирта в кубе, %</string>
+    <string name="strAlcInCube">Сирта в кубе, %</string>
+    <string name="strRAW_V">Объем СС, мл</string>
+    <string name="strCubeBotton">Кубовой остаток</string>
+</resources>
