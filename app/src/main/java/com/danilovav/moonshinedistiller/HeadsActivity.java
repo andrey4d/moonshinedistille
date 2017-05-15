@@ -39,7 +39,6 @@ public class HeadsActivity extends AppCompatActivity implements View.OnClickList
         mAction = getIntent().getAction();
         InitLayoutObject();
 
-        loadData(mAction);// востанавливаем данные
     }
 
     @Override
@@ -54,9 +53,21 @@ public class HeadsActivity extends AppCompatActivity implements View.OnClickList
         finish();
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        saveData(mAction); // Сохраняем данные
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadData(mAction);  // востанавливаем данные
+    }
 
 
-// расчет объема
+
+    // расчет объема
     private void calcFraction(){
       int mVol =0;
       int mVolAbsAlc = 0;
@@ -106,49 +117,8 @@ public class HeadsActivity extends AppCompatActivity implements View.OnClickList
 
 
 
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putInt("count", 1);
-        SaveState(outState,mAction);
-    }
 
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-        RestoreState(savedInstanceState,mAction);
-
-    }
-
-   private void RestoreState(Bundle savedInstanceState, String key){
-       etdVolume01.setText(savedInstanceState.getString(key+"V1"));
-       etdVolume02 .setText(savedInstanceState.getString(key+"V2"));
-       etdVolume03.setText(savedInstanceState.getString(key+"V3"));
-       etdVolume04.setText(savedInstanceState.getString(key+"V4"));
-       etdVolume05.setText(savedInstanceState.getString(key+"V5"));
-
-       edtAlc01.setText(savedInstanceState.getString(key+"A1"));
-       edtAlc02.setText(savedInstanceState.getString(key+"A2"));
-       edtAlc03.setText(savedInstanceState.getString(key+"A3"));
-       edtAlc04.setText(savedInstanceState.getString(key+"A4"));
-       edtAlc05.setText(savedInstanceState.getString(key+"A5"));
-
-   }
-
-   private void SaveState(Bundle outState,String key){
-       outState.putString(key+"V1",etdVolume01.getText().toString());
-       outState.putString(key+"V2",etdVolume02.getText().toString());
-       outState.putString(key+"V3",etdVolume03.getText().toString());
-       outState.putString(key+"V4",etdVolume04.getText().toString());
-       outState.putString(key+"V5",etdVolume05.getText().toString());
-
-       outState.putString(key+"A1",edtAlc01.getText().toString());
-       outState.putString(key+"A2",edtAlc02.getText().toString());
-       outState.putString(key+"A3",edtAlc03.getText().toString());
-       outState.putString(key+"A4",edtAlc04.getText().toString());
-       outState.putString(key+"A5",edtAlc05.getText().toString());
-
-   }
-
-   private   void InitLayoutObject(){
+     private   void InitLayoutObject(){
         tvTitle = (TextView) findViewById(R.id.tvTitle);
         setActivitityTitle(mAction);
 
@@ -221,9 +191,4 @@ public class HeadsActivity extends AppCompatActivity implements View.OnClickList
         edtAlc05.setText(sPref.getString(key+"A5",""));
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        saveData(mAction);
-    }
 }

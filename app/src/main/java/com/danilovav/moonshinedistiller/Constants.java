@@ -11,7 +11,17 @@ public class Constants {
     final static public int DEF_ACL_RAW = 60;
     final static public int DEF_VAL_ACL_RAW = 1000;
     final static public int DEF_VAL_WATER = 1000;
-    final static int DEF_INT_NULL = 0;
+    final static public int DEF_INT_NULL = 0;
+    final static public String DEF_VAL_HEADS = "3";
+    final static public String DEF_VAL_AHEADS= "7";
+    final static public String DEF_VAL_BODY  = "70";
+    final static public String DEF_VAL_BTAILS= "5";
+    final static public String DEF_VAL_TAILS = "10";
+
+    final static public String KEY_MAIN_ACTIVITY = "MAIN_KEY";
+    final static public String ALC= "ALC";
+    final static public String RAWVOL = "RAWVOL";
+    final static public String WATERVOL = "WATERVOL";
 
     final static public int REQUEST_CODE_HEADS = 1;
     final static public int REQUEST_CODE_AFTER_HEADS = 2;
