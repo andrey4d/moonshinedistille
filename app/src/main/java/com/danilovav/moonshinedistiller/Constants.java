@@ -20,6 +20,7 @@ public class Constants {
 
     final static public String KEY_MAIN_ACTIVITY = "MAIN_KEY";
     final static public String ALC= "ALC";
+    final static public String VOL= "VOL";
     final static public String RAWVOL = "RAWVOL";
     final static public String WATERVOL = "WATERVOL";
 

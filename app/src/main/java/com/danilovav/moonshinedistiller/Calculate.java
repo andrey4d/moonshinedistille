@@ -5,12 +5,12 @@ package com.danilovav.moonshinedistiller;
  */
 
 public class Calculate {
-    private int mAlcRAW;
-    private int mValRAW;
-    private int mValWater;
-    private int mAlcInCude;
-    private int mAlcInCudeCur;
-    private int mAbsAlc;
+    private int mAlcRAW;    // Крепость СС
+    private int mValRAW;    // Щбъем СС
+    private int mValWater;  // Объем воды для разбавления СС
+    private int mAlcInCude; // Количество спирта в кубе
+    private int mAlcInCudeCur;// Количество спирта в кубе текущее
+    private int mAbsAlc;   // Абсолютный спирт в кубе
     private int mAbsAlcCur;     // Текущие параметры абсальтно спирта
     private int mBottomBalance; // кубовой остаток
 
@@ -38,7 +38,7 @@ public class Calculate {
 
 
     public void onCalculate(){
-        mAbsAlc=   mAlcRAW*mValRAW/100;
+        mAbsAlc = mAlcRAW*mValRAW/100;
         mAlcInCude =mAbsAlc*100/(mValRAW+mValWater);
     }
 
@@ -91,11 +91,11 @@ public class Calculate {
         this.mHeadVol = mHeadVol;
     }
 
-    public int getHeadAbs() {
+    public int getHeadAlc() {
         return mHeadAbs;
     }
 
-    public void setHeadAbs(int mHeadAbs) {
+    public void setHeadAlc(int mHeadAbs) {
         this.mHeadAbs = mHeadAbs;
     }
 
@@ -107,11 +107,11 @@ public class Calculate {
         this.mAHeadVol = mAHeadVol;
     }
 
-    public int getAHeadAbs() {
+    public int getAHeadAlc() {
         return mAHeadAbs;
     }
 
-    public void setAHeadAbs(int mAHeadAbs) {
+    public void setAHeadAlc(int mAHeadAbs) {
         this.mAHeadAbs = mAHeadAbs;
     }
 
@@ -123,11 +123,11 @@ public class Calculate {
         this.mBodyVol = mBodyVol;
     }
 
-    public int getBodyAbs() {
+    public int getBodyAlc() {
         return mBodyAbs;
     }
 
-    public void setBodyAbs(int mBodyAbs) {
+    public void setBodyAlc(int mBodyAbs) {
         this.mBodyAbs = mBodyAbs;
     }
 
@@ -139,11 +139,11 @@ public class Calculate {
         this.mBTailsVol = mBTailsVol;
     }
 
-    public int getBTailsAbs() {
+    public int getBTailsAlc() {
         return mBTailsAbs;
     }
 
-    public void setBTailsAbs(int mBTailsAbs) {
+    public void setBTailsAlc(int mBTailsAbs) {
         this.mBTailsAbs = mBTailsAbs;
     }
 
@@ -155,13 +155,15 @@ public class Calculate {
         this.mTailsVol = mTailsVol;
     }
 
-    public int getTailsAbs() {
+    public int getTailsAlc() {
         return mTailsAbs;
     }
 
-    public void setTailsAbs(int mTailsAbs) {
+    public void setTailsAlc(int mTailsAbs) {
         this.mTailsAbs = mTailsAbs;
     }
+
+
 
     public int getAbsAlc() {
         return mAbsAlc;
@@ -180,7 +182,10 @@ public class Calculate {
     }
    // % спирта во фракции
     public int getAlcFraction(int volFraction, int absAlcFraction){
-        return(absAlcFraction*100/volFraction);
+        if(volFraction == 0) {return(0);}
+        else {
+            return (absAlcFraction * 100 / volFraction);
+        }
     }
 
 }
