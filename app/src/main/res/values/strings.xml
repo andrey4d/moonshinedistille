@@ -5,11 +5,11 @@
     <string name="strWater_V">Vol. water, ml</string>
     <string name="strInitCube">Originally in the distillation cube</string>
     <string name="strAlcInCube">Alc. in the distillation cube, %</string>
-    <string name="strValAbsAlc">Val. Absolute alcohol, ml</string>
+    <string name="strVolAbsAlcCur">Volume AA in the distillation cube, ml</string>
+    <string name="strVolAbsAlc">Vol. Absolute alcohol, ml</string>
     <string name="strTitleFractions">Fractions</string>
     <string name="strCalculateCube">Calculate</string>
     <string name="AlcInCubeCur">Alc in the distillation cube, %</string>
-    <string name="ValAbsAlcCur">Val. Absolute alcohol, ml</string>
     <string name="strHeads"> %, Heads</string>
     <string name="strAfterHeads">%, After heads</string>
     <string name="strBody">%, Body</string>
@@ -32,5 +32,8 @@
     <string name="strCubeBottomBalance">Bottom Balance the distillation cube, ml</string>
     <string name="strPercent">%</string>
     <string name="strMl">ml</string>
-    <string name="strCubeBotton">Bottoms</string>
+    <string name="strCubeBotton">Cube bottoms</string>
+    <string name="strAbsAlcohol">AA</string>
+    <string name="strComma">,</string>
+    <string name="strSpace">" "</string>
 </resources>

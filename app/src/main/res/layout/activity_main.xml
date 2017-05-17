@@ -13,26 +13,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/strBeforeTails"
-        app:layout_constraintBaseline_toBaselineOf="@+id/edtBeforTails"
-        app:layout_constraintLeft_toRightOf="@+id/edtBeforTails"
-        tools:layout_constraintBaseline_creator="1"
-        tools:layout_constraintLeft_creator="1" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/tvBeforeTailsOut"
+        android:layout_marginLeft="0dp"
+        app:layout_constraintLeft_toLeftOf="@+id/tvBody" />
 
     <TextView
         android:id="@+id/tvBeforeTailsOut"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="96dp"
-        android:layout_marginRight="96dp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/tvBeforeTails"
-        app:layout_constraintHorizontal_bias="0.0"
-        tools:layout_constraintBaseline_creator="1"
-        tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1"
-        android:layout_marginStart="96dp"
-        android:layout_marginEnd="96dp"
-        app:layout_constraintRight_toRightOf="@+id/dotbtnBeforeTails"
-        app:layout_constraintLeft_toLeftOf="@+id/tvBeforeTails" />
+
+        android:text="@string/strBeforeTailsBTN"
+
+        app:layout_constraintRight_toLeftOf="@+id/dotbtnBeforeTails"
+        app:layout_constraintBaseline_toBaselineOf="@+id/dotbtnBeforeTails"
+        android:layout_marginRight="8dp" />
 
     <Button
         android:id="@+id/dotbtnBeforeTails"
@@ -40,25 +34,13 @@
         android:layout_height="wrap_content"
         android:onClick="onClick3dotButton"
         android:text="@string/str3Dots"
-        app:layout_constraintBaseline_toBaselineOf="@+id/tvBeforeTailsOut"
         app:layout_constraintLeft_toLeftOf="@+id/dotbtnBody"
         app:layout_constraintRight_toRightOf="@+id/dotbtnBody"
         tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1" />
-
-    <EditText
-        android:id="@+id/edtBeforTails"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="5"
-        android:inputType="numberDecimal"
-        android:text="5"
-        app:layout_constraintLeft_toLeftOf="@+id/edtBody"
-        app:layout_constraintRight_toRightOf="@+id/edtBody"
-        app:layout_constraintTop_toBottomOf="@+id/edtBody"
-        tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1" />
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintHorizontal_bias="0.0"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/dotbtnTails" />
 
     <TextView
         android:id="@+id/tvAlc"
@@ -165,12 +147,12 @@
         android:id="@+id/tvVolAbsAlc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/strValAbsAlc"
-        tools:layout_constraintTop_creator="1"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="6dp"
+        android:text="@string/strVolAbsAlcCur"
+        app:layout_constraintLeft_toLeftOf="@+id/tvAlcInCube"
         app:layout_constraintTop_toBottomOf="@+id/tvAlcInCube"
         tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="@+id/tvAlcInCube" />
+        tools:layout_constraintTop_creator="1" />
 
     <TextView
         android:id="@+id/tvAlcInCubeOut"
@@ -183,7 +165,7 @@
 
     <View
         android:id="@+id/view"
-        android:layout_width="344dp"
+        android:layout_width="0dp"
         android:layout_height="2dp"
         android:background="@color/colorPrimary"
         android:layout_marginRight="8dp"
@@ -192,80 +174,74 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintHorizontal_bias="0.0" />
+        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintLeft_creator="1" />
     <TextView
         android:id="@+id/tvCurSet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/strTitleFractions"
-        tools:layout_editor_absoluteX="152dp"
         app:layout_constraintTop_toBottomOf="@+id/view"
-        android:layout_marginTop="8dp" />
+        android:layout_marginTop="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintLeft_creator="1" />
 
     <TextView
         android:id="@+id/tvHeads"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/strHeads"
-        app:layout_constraintBaseline_toBaselineOf="@+id/edtHeads"
-        tools:layout_constraintBaseline_creator="1"
-        tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toRightOf="@+id/edtHeads" />
+        android:layout_marginStart="8dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tvHeadsOut"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
 
     <TextView
         android:id="@+id/tvAfterHeads"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/strAfterHeads"
-        app:layout_constraintBaseline_toBaselineOf="@+id/edtAfterHeads"
-        app:layout_constraintLeft_toRightOf="@+id/edtAfterHeads"
-        tools:layout_constraintLeft_creator="1" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/tvAfterHeadsOut"
+        android:layout_marginLeft="0dp"
+        app:layout_constraintLeft_toLeftOf="@+id/tvHeads" />
 
     <TextView
         android:id="@+id/tvHeadsOut"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toRightOf="@+id/tvHeads"
+        android:layout_marginEnd="8dp"
+        android:text="@string/strHeadsBTN"
         app:layout_constraintRight_toLeftOf="@+id/dotbtnHeads"
-        tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1"
-        app:layout_constraintBaseline_toBaselineOf="@+id/tvHeads"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp" />
+        android:layout_marginRight="8dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/dotbtnHeads"
+        tools:layout_constraintBaseline_creator="1" />
 
     <TextView
         android:id="@+id/tvAfterHeadsOut"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="7dp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/tvAfterHeads"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toRightOf="@+id/tvAfterHeads"
+        android:layout_marginEnd="7dp"
+        android:text="@string/strAfterHeadsBTN"
         app:layout_constraintRight_toLeftOf="@+id/dotbtnAfterHeads"
-        tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="7dp" />
+        android:layout_marginRight="7dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/dotbtnAfterHeads"
+        tools:layout_constraintBaseline_creator="1" />
 
     <TextView
         android:id="@+id/tvBodyOut"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="7dp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/tvBody"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toRightOf="@+id/tvBody"
+        android:layout_marginEnd="7dp"
+        android:text="@string/strBodyBTN"
         app:layout_constraintRight_toLeftOf="@+id/dotbtnBody"
-        tools:layout_constraintBaseline_creator="1"
-        tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="7dp" />
+        android:layout_marginRight="7dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/dotbtnBody"
+        tools:layout_constraintBaseline_creator="1" />
 
     <TextView
         android:id="@+id/tvVolAbsAlcOut"
@@ -277,7 +253,9 @@
         android:layout_marginStart="8dp"
         app:layout_constraintBaseline_toBaselineOf="@+id/tvVolAbsAlc"
         app:layout_constraintLeft_toRightOf="@+id/tvVolAbsAlc"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintLeft_creator="1" />
 
     <Button
         android:id="@+id/dotbtnAfterHeads"
@@ -285,36 +263,22 @@
         android:layout_height="wrap_content"
         android:onClick="onClick3dotButton"
         android:text="@string/str3Dots"
-        app:layout_constraintBaseline_toBaselineOf="@+id/tvAfterHeadsOut"
         app:layout_constraintLeft_toLeftOf="@+id/dotbtnHeads"
         app:layout_constraintRight_toRightOf="@+id/dotbtnHeads"
         tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1" />
-
-    <EditText
-        android:id="@+id/edtBody"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="70"
-        android:inputType="numberDecimal"
-        android:text="70"
-        app:layout_constraintLeft_toLeftOf="@+id/edtAfterHeads"
-        app:layout_constraintRight_toRightOf="@+id/edtAfterHeads"
-        app:layout_constraintTop_toBottomOf="@+id/edtAfterHeads"
-        tools:layout_constraintLeft_creator="1"
         tools:layout_constraintRight_creator="1"
-        tools:layout_constraintTop_creator="1" />
+        app:layout_constraintHorizontal_bias="0.0"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/dotbtnBody" />
 
     <TextView
         android:id="@+id/tvBody"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/strBody"
-        app:layout_constraintBaseline_toBaselineOf="@+id/edtBody"
-        app:layout_constraintLeft_toRightOf="@+id/edtBody"
-        tools:layout_constraintBaseline_creator="1"
-        tools:layout_constraintLeft_creator="1" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/tvBodyOut"
+        android:layout_marginLeft="0dp"
+        app:layout_constraintLeft_toLeftOf="@+id/tvAfterHeads" />
 
     <Button
         android:id="@+id/dotbtnBody"
@@ -322,24 +286,13 @@
         android:layout_height="wrap_content"
         android:onClick="onClick3dotButton"
         android:text="@string/str3Dots"
-        app:layout_constraintBaseline_toBaselineOf="@+id/tvBodyOut"
         app:layout_constraintLeft_toLeftOf="@+id/dotbtnAfterHeads"
         app:layout_constraintRight_toRightOf="@+id/dotbtnAfterHeads"
         tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1" />
-
-    <EditText
-        android:id="@+id/edtHeads"
-        android:layout_width="30dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="3"
-        android:inputType="numberDecimal"
-        android:text="3"
-        android:layout_marginStart="8dp"
-        tools:layout_editor_absoluteX="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/tvCurSet" />
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintHorizontal_bias="0.0"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/dotbtnBeforeTails" />
 
     <Button
         android:id="@+id/dotbtnHeads"
@@ -349,38 +302,9 @@
         android:layout_marginRight="6dp"
         android:onClick="onClick3dotButton"
         android:text="@string/str3Dots"
-        app:layout_constraintBaseline_toBaselineOf="@+id/tvHeadsOut"
+        app:layout_constraintBottom_toTopOf="@+id/dotbtnAfterHeads"
         app:layout_constraintRight_toRightOf="parent"
-        tools:layout_constraintRight_creator="1" />
-
-    <EditText
-        android:id="@+id/edtAfterHeads"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="7"
-        android:inputType="numberDecimal"
-        android:text="7"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintLeft_toLeftOf="@+id/edtHeads"
-        app:layout_constraintRight_toRightOf="@+id/edtHeads"
-        app:layout_constraintTop_toBottomOf="@+id/edtHeads"
-        tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1" />
-
-    <EditText
-        android:id="@+id/edtTails"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="10"
-        android:inputType="numberDecimal"
-        android:text="10"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="@+id/edtBeforTails"
-        app:layout_constraintRight_toRightOf="@+id/edtBeforTails"
-        app:layout_constraintTop_toBottomOf="@+id/edtBeforTails"
-        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintBottom_creator="1"
         tools:layout_constraintRight_creator="1" />
 
     <TextView
@@ -388,43 +312,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/strTails"
-        app:layout_constraintBaseline_toBaselineOf="@+id/edtTails"
-        app:layout_constraintLeft_toRightOf="@+id/edtTails"
-        tools:layout_constraintLeft_creator="1" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/tvTailsOut"
+        android:layout_marginLeft="0dp"
+        app:layout_constraintLeft_toLeftOf="@+id/tvBeforeTails" />
 
     <TextView
         android:id="@+id/tvTailsOut"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/tvTails"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toRightOf="@+id/tvTails"
+         android:text="@string/strTailsBTN"
         app:layout_constraintRight_toLeftOf="@+id/dotbtnTails"
-        tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp" />
-
-    <Button
-        android:id="@+id/dotbtnTails"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:onClick="onClick3dotButton"
-        android:text="@string/str3Dots"
-        app:layout_constraintBaseline_toBaselineOf="@+id/tvTailsOut"
-        app:layout_constraintLeft_toLeftOf="@+id/dotbtnBeforeTails"
-        app:layout_constraintRight_toRightOf="@+id/dotbtnBeforeTails"
-        tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/dotbtnTails"
+        android:layout_marginRight="8dp" />
 
     <TextView
         android:id="@+id/tvCubeBottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="@string/strCubeBotton"
+        android:text="@string/strCubeBottomBalance"
         app:layout_constraintLeft_toLeftOf="@+id/tvVolAbsAlc"
         app:layout_constraintTop_toBottomOf="@+id/tvVolAbsAlc" />
 
@@ -436,5 +342,20 @@
         app:layout_constraintLeft_toLeftOf="@+id/tvCubeBottom"
         android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@+id/tvCubeBottom" />
+
+    <Button
+        android:id="@+id/dotbtnTails"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="54dp"
+        android:onClick="onClick3dotButton"
+        android:text="@string/str3Dots"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="@+id/dotbtnBeforeTails"
+        app:layout_constraintRight_toRightOf="@+id/dotbtnBeforeTails"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1" />
 
 </android.support.constraint.ConstraintLayout>

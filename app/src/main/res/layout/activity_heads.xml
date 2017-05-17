@@ -14,11 +14,12 @@
      android:layout_height="wrap_content"
      android:text="@string/strHeadsFraction"
      app:layout_constraintTop_toTopOf="parent"
-     android:layout_marginTop="8dp"
+     android:layout_marginTop="16dp"
      android:layout_marginRight="8dp"
      app:layout_constraintRight_toRightOf="parent"
      android:layout_marginLeft="8dp"
-     app:layout_constraintLeft_toLeftOf="parent" />
+     app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintHorizontal_bias="0.502" />
 
 
     <TextView
@@ -28,9 +29,9 @@
         android:text="@string/strVolume"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintHorizontal_bias="0.198"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+        app:layout_constraintHorizontal_bias="0.185"
+        app:layout_constraintTop_toTopOf="@+id/view2"
+        android:layout_marginTop="16dp" />
 
     <TextView
         android:id="@+id/tvAlc"
@@ -39,9 +40,9 @@
         android:text="@string/strAlc"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintHorizontal_bias="0.805"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+        app:layout_constraintHorizontal_bias="0.808"
+        app:layout_constraintTop_toTopOf="@+id/view2"
+        android:layout_marginTop="16dp" />
 
     <EditText
         android:id="@+id/etdVolume01"
@@ -51,7 +52,6 @@
         android:ems="10"
         android:hint="100"
         android:inputType="numberDecimal"
-        android:text="100"
         app:layout_constraintLeft_toLeftOf="@+id/tvVolume"
         app:layout_constraintRight_toRightOf="@+id/tvVolume"
         app:layout_constraintTop_toBottomOf="@+id/tvVolume" />
@@ -64,10 +64,10 @@
         android:ems="10"
         android:hint="93"
         android:inputType="numberDecimal"
-        android:text="93"
         app:layout_constraintLeft_toLeftOf="@+id/tvAlc"
         app:layout_constraintRight_toRightOf="@+id/tvAlc"
-        app:layout_constraintTop_toBottomOf="@+id/tvAlc" />
+        app:layout_constraintTop_toBottomOf="@+id/tvAlc"
+        app:layout_constraintHorizontal_bias="0.512" />
 
     <EditText
         android:id="@+id/etdVolume02"
@@ -77,7 +77,6 @@
         android:ems="10"
         android:hint="0"
         android:inputType="numberDecimal"
-        android:text="50"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="@+id/etdVolume01"
         app:layout_constraintRight_toRightOf="@+id/etdVolume01"
@@ -91,7 +90,6 @@
         android:ems="10"
         android:hint="0"
         android:inputType="numberDecimal"
-        android:text="90"
         app:layout_constraintLeft_toLeftOf="@+id/edtAlc01"
         app:layout_constraintRight_toRightOf="@+id/edtAlc01"
         app:layout_constraintTop_toBottomOf="@+id/edtAlc01" />
@@ -104,7 +102,6 @@
         android:ems="10"
         android:hint="0"
         android:inputType="numberDecimal"
-        android:text="20"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="@+id/etdVolume02"
         app:layout_constraintRight_toRightOf="@+id/etdVolume02"
@@ -118,7 +115,6 @@
         android:ems="10"
         android:hint="0"
         android:inputType="numberDecimal"
-        android:text="88"
         app:layout_constraintLeft_toLeftOf="@+id/edtAlc02"
         app:layout_constraintRight_toRightOf="@+id/edtAlc02"
         app:layout_constraintTop_toBottomOf="@+id/edtAlc02" />
@@ -189,10 +185,25 @@
         android:background="@color/colorPrimary"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="1.0"
         android:layout_marginBottom="32dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitle"
-        app:layout_constraintBottom_toTopOf="@+id/btnSave" />
+        android:layout_marginTop="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/edtFractionPercent"
+        app:layout_constraintBottom_toTopOf="@+id/btnSave"
+        android:id="@+id/view2" />
+
+    <EditText
+        android:id="@+id/edtFractionPercent"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="100"
+        android:inputType="number"
+        android:text="100"
+        app:layout_constraintHorizontal_bias="0.436"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/tvTitle"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tvTitle" />
 
 </android.support.constraint.ConstraintLayout>

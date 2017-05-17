@@ -7,7 +7,7 @@
     <string name="strTails">%, Хвостов</string>
     <string name="strTailsBTN">Хвосты</string>
     <string name="strTitleFractions">Фракции</string>
-    <string name="strValAbsAlc">Объем абсалютного спирта, мл</string>
+    <string name="strVolAbsAlc">Объем абсалютного спирта, мл</string>
     <string name="strWater_V">Объем воды, мл</string>
     <string name="strVolume">Объем</string>
     <string name="strAHeadsFraction">Подголовье</string>
@@ -29,9 +29,12 @@
     <string name="strBeforeTailsBTN">Предхвостие</string>
     <string name="strBeforeTails">%, Предхвостий</string>
     <string name="strBeforeTailFraction">Фракция предхвостий</string>
-    <string name="ValAbsAlcCur">Объем абсолютного спират в кубе, мл</string>
+    <string name="strVolAbsAlcCur">Объем абсолютного спират в кубе, мл</string>
     <string name="AlcInCubeCur">Сирта в кубе, %</string>
     <string name="strAlcInCube">Сирта в кубе, %</string>
     <string name="strRAW_V">Объем СС, мл</string>
     <string name="strCubeBotton">Кубовой остаток</string>
+    <string name="strAbsAlcohol">АС</string>
+    <string name="strComma">,</string>
+    <string name="strSpace">" "</string>
 </resources>

@@ -27,7 +27,7 @@ public class HeadsActivity extends AppCompatActivity implements View.OnClickList
     private EditText edtAlc05;
 
     private int mVolume;
-    private int mAbsAlcogol;
+    private int mVolAbsAlcogol;
     private String mAction;
 
     SharedPreferences sPref;
@@ -48,7 +48,7 @@ public class HeadsActivity extends AppCompatActivity implements View.OnClickList
         calcFraction(); //Расчет объема фракции и аобъема абсалютного спирта
 
         intent.putExtra(Constants.FRACTION_VOLUME, mVolume);
-        intent.putExtra(Constants.FRACTION_ALC, mAbsAlcogol);
+        intent.putExtra(Constants.FRACTION_ALC, mVolAbsAlcogol);
         setResult(RESULT_OK, intent);
         finish();
     }
@@ -107,7 +107,7 @@ public class HeadsActivity extends AppCompatActivity implements View.OnClickList
 
 
         mVolume     =mVol;
-        mAbsAlcogol =mVolAbsAlc;
+        mVolAbsAlcogol =mVolAbsAlc;
   }
 
     //Расчет абсолютного алкоголя
