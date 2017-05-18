@@ -26,11 +26,6 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
     private EditText edtAlc;
     private EditText edtAlcV;
     private EditText edtWaterV;
-    private EditText edtHeads;
-    private EditText edtAfterHeads;
-    private EditText edtBody;
-    private EditText edtBeforTails;
-    private EditText edtTails;
 
     private SharedPreferences sPref;
 
@@ -169,12 +164,6 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
         edtWaterV       = (EditText) findViewById(R.id.edtWaterV);
         edtWaterV.setOnFocusChangeListener(this);
 
-        edtHeads        = (EditText) findViewById(R.id.edtHeads);
-        edtAfterHeads   = (EditText) findViewById(R.id.edtAfterHeads);
-        edtBody         = (EditText) findViewById(R.id.edtBody);
-        edtBeforTails   = (EditText) findViewById(R.id.edtBeforTails);
-        edtTails        = (EditText) findViewById(R.id.edtTails);
-
 
     }
 
@@ -190,12 +179,6 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
         spEditor.putString(key+Constants.ALC,       edtAlc.getText().toString());
         spEditor.putString(key+Constants.RAWVOL,    edtAlcV.getText().toString());
         spEditor.putString(key+Constants.WATERVOL,  edtWaterV.getText().toString());
-
-        spEditor.putString(key+Constants.HEADS,     edtHeads.getText().toString());
-        spEditor.putString(key+Constants.AHEADS,    edtAfterHeads.getText().toString());
-        spEditor.putString(key+Constants.BODY,      edtBody.getText().toString());
-        spEditor.putString(key+Constants.BTAILS,    edtBeforTails.getText().toString());
-        spEditor.putString(key+Constants.TAILS,     edtTails.getText().toString());
         spEditor.commit();
     }
 
@@ -204,12 +187,6 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
         edtAlc.setText      (sPref.getString(key+Constants.ALC,        String.valueOf(Constants.DEF_ACL_RAW)));
         edtAlcV.setText     (sPref.getString(key+Constants.RAWVOL,     String.valueOf(Constants.DEF_VAL_ACL_RAW)));
         edtWaterV.setText   (sPref.getString(key+Constants.WATERVOL,   String.valueOf(Constants.DEF_VAL_WATER)));
-
-        edtHeads.setText(     sPref.getString(key+Constants.HEADS,     Constants.DEF_VAL_HEADS));
-        edtAfterHeads.setText(sPref.getString(key+Constants.AHEADS,    Constants.DEF_VAL_AHEADS));
-        edtBody.setText(      sPref.getString(key+Constants.BODY,      Constants.DEF_VAL_BODY));
-        edtBeforTails.setText(sPref.getString(key+Constants.BTAILS,    Constants.DEF_VAL_BTAILS));
-        edtTails.setText(     sPref.getString(key+Constants.TAILS,     Constants.DEF_VAL_TAILS));
     }
 
     private void saveFractionData(String key, int dataVol, int dataAlc){

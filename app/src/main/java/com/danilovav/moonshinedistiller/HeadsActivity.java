@@ -14,6 +14,8 @@ public class HeadsActivity extends AppCompatActivity implements View.OnClickList
     private TextView tvTitle;
     private Button btnSave;
 
+    private EditText edtFractionPercent;
+
     private EditText etdVolume01;
     private EditText etdVolume02;
     private EditText etdVolume03;
@@ -29,6 +31,8 @@ public class HeadsActivity extends AppCompatActivity implements View.OnClickList
     private int mVolume;
     private int mVolAbsAlcogol;
     private String mAction;
+
+    private String mDefaultVolFraction;
 
     SharedPreferences sPref;
 
@@ -125,6 +129,8 @@ public class HeadsActivity extends AppCompatActivity implements View.OnClickList
         btnSave = (Button)findViewById(R.id.btnSave);
         btnSave.setOnClickListener(this);
 
+      edtFractionPercent = (EditText)findViewById(R.id.edtFractionPercent);
+
       etdVolume01 = (EditText)findViewById(R.id.etdVolume01);
       etdVolume02 = (EditText)findViewById(R.id.etdVolume02);
       etdVolume03 = (EditText)findViewById(R.id.etdVolume03);
@@ -142,18 +148,23 @@ public class HeadsActivity extends AppCompatActivity implements View.OnClickList
      switch(action) {
          case Constants.HEADS:
              tvTitle.setText(R.string.strHeadsFraction);
+             mDefaultVolFraction=Constants.DEF_VAL_HEADS;
              break;
          case Constants.AHEADS:
              tvTitle.setText(R.string.strAHeadsFraction);
+             mDefaultVolFraction=Constants.DEF_VAL_AHEADS;
              break;
          case Constants.BODY:
              tvTitle.setText(R.string.strBodyFraction);
+             mDefaultVolFraction=Constants.DEF_VAL_BODY;
              break;
          case Constants.BTAILS:
              tvTitle.setText(R.string.strBeforeTailFraction);
+             mDefaultVolFraction=Constants.DEF_VAL_BTAILS;
              break;
          case Constants.TAILS:
              tvTitle.setText(R.string.strTailsFraction);
+             mDefaultVolFraction=Constants.DEF_VAL_TAILS;
              break;
 
      }
@@ -162,6 +173,9 @@ public class HeadsActivity extends AppCompatActivity implements View.OnClickList
     private void saveData(String key) {
         sPref = getPreferences(MODE_PRIVATE);
         SharedPreferences.Editor outState = sPref.edit();
+
+        outState.putString(key+"%",edtFractionPercent.getText().toString());
+
         outState.putString(key+"V1",etdVolume01.getText().toString());
         outState.putString(key+"V2",etdVolume02.getText().toString());
         outState.putString(key+"V3",etdVolume03.getText().toString());
@@ -178,6 +192,7 @@ public class HeadsActivity extends AppCompatActivity implements View.OnClickList
 
     void loadData(String key) {
         sPref = getPreferences(MODE_PRIVATE);
+        edtFractionPercent.setText(sPref.getString(key+"%",mDefaultVolFraction));
         etdVolume01.setText(sPref.getString(key+"V1",""));
         etdVolume02.setText(sPref.getString(key+"V2",""));
         etdVolume03.setText(sPref.getString(key+"V3",""));
