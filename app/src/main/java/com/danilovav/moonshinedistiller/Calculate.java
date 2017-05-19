@@ -17,6 +17,12 @@ public class Calculate {
     private int mVolFraction; //объем фракции
     private int mAbsFraction; //абсалютный спирт фракции
 
+    private int mPctHead; //Процент голов от АС
+    private int mPctAHead;
+    private int mPctBody;
+    private int mPctBTails;
+    private int mPctTails;
+
     private int mHeadVol;
     private int mHeadVolAA;
     private int mAHeadVol;
@@ -32,6 +38,12 @@ public class Calculate {
         this.mAlcRAW     =Constants.DEF_ACL_RAW;
         this.mVolRAW     =Constants.DEF_VAL_ACL_RAW;
         this.mVolWater   =Constants.DEF_VAL_WATER;
+
+        this.mPctHead   = Integer.valueOf(Constants.DEF_VAL_HEADS );
+        this.mPctAHead  = Integer.valueOf(Constants.DEF_VAL_AHEADS);
+        this.mPctBody   = Integer.valueOf(Constants.DEF_VAL_BODY  );
+        this.mPctBTails = Integer.valueOf(Constants.DEF_VAL_BTAILS);
+        this.mPctTails  = Integer.valueOf(Constants.DEF_VAL_TAILS );
     }
 
     public void onCalculate(){
@@ -46,6 +58,24 @@ public class Calculate {
         return(mBottomBalance);
     }
 
+    public String addZero(String mText){  // устанавливаем 0 если поле пустое
+        if(mText.isEmpty()) {return "0";}
+        return  mText;
+    }
+
+    //расчет объема фракции из абсалютного спирта фракции
+    public int getVlolumeFractions(int volAbsAlcogolFraction, int fractionAlcogol) {
+        return (volAbsAlcogolFraction/fractionAlcogol*100);
+    }
+
+    public int getAlcFraction(int volFraction, int volAAFraction){ // % спирта во фракции
+        if(volFraction == 0) {return(0);}
+        else {
+            return (volAAFraction * 100 / volFraction);
+        }
+    }
+
+    //------Getter & Setter---------------------------------------------------------------------------
     public void setAlcRAW(int mAlcRAW) {
         this.mAlcRAW = mAlcRAW;
     }
@@ -157,7 +187,65 @@ public class Calculate {
         this.mTailsVolAA = mTailsAbs;
     }
 
+    public int getmPctHead() {
+        return mPctHead;
+    }
 
+    public void setmPctHead(String mPctHead) {
+        this.mPctHead = Integer.valueOf(mPctHead);
+    }
+
+    public int getmPctAHead() {
+        return mPctAHead;
+    }
+
+    public void setmPctAHead(String mPctAHead) {
+        this.mPctAHead = Integer.valueOf(mPctAHead);
+    }
+
+    public int getmPctBody() {
+        return mPctBody;
+    }
+
+    public void setmPctBody(String mPctBody) {
+        this.mPctBody = Integer.valueOf(mPctBody);
+    }
+
+    public int getmPctBTails() {
+        return mPctBTails;
+    }
+
+    public void setmPctBTails(String mPctBTails) {
+        this.mPctBTails = Integer.valueOf(mPctBTails);
+    }
+
+    public int getmPctTails() {
+        return mPctTails;
+    }
+
+    public void setmPctTails(String mPctTails) {
+        this.mPctTails = Integer.valueOf(mPctTails);
+    }
+
+    public void setmPctHead(int mPctHead) {
+        this.mPctHead = mPctHead;
+    }
+
+    public void setmPctAHead(int mPctAHead) {
+        this.mPctAHead = mPctAHead;
+    }
+
+    public void setmPctBody(int mPctBody) {
+        this.mPctBody = mPctBody;
+    }
+
+    public void setmPctBTails(int mPctBTails) {
+        this.mPctBTails = mPctBTails;
+    }
+
+    public void setmPctTails(int mPctTails) {
+        this.mPctTails = mPctTails;
+    }
 
     public int getAbsAlc() {
         return mVolAbsAlc;
@@ -166,22 +254,6 @@ public class Calculate {
         return mAlcInCude;
     }
 
-    public String addZero(String mText){  // устанавливаем 0 если поле пустое
-        if(mText.isEmpty()) {return "0";}
-        return  mText;
-    }
-
-    //расчет объема фракции из абсалютного спирта фракции
-    public int getVlolumeFractions(int volAbsAlcogolFraction, int fractionAlcogol) {
-        return (volAbsAlcogolFraction/fractionAlcogol*100);
-    }
-
-    public int getAlcFraction(int volFraction, int volAAFraction){ // % спирта во фракции
-        if(volFraction == 0) {return(0);}
-        else {
-            return (volAAFraction * 100 / volFraction);
-        }
-    }
 
 }
 

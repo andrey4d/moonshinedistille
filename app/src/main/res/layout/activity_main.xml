@@ -18,8 +18,7 @@
         android:layout_marginStart="8dp"
         tools:layout_constraintLeft_creator="1"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="8dp" />
+        android:layout_marginLeft="8dp" />
 
     <TextView
         android:id="@+id/tvBeforeTailsOut"
@@ -47,10 +46,10 @@
         android:id="@+id/edtAlc01"
         android:layout_width="36dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="31dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginStart="27dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginLeft="37dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginStart="37dp"
         android:ems="10"
         android:hint="27"
         android:inputType="numberDecimal"
@@ -74,16 +73,16 @@
 
     <EditText
         android:id="@+id/edtAlcV"
-        android:layout_width="72dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginStart="8dp"
         android:ems="10"
         android:hint="1000"
         android:inputType="numberDecimal"
         app:layout_constraintBaseline_toBaselineOf="@+id/tvAlcV"
-        app:layout_constraintLeft_toRightOf="@+id/tvAlcV"
-        tools:layout_constraintLeft_creator="1" />
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintRight_toRightOf="@+id/edtWaterV"
+        app:layout_constraintLeft_toLeftOf="@+id/edtWaterV" />
 
     <TextView
         android:id="@+id/tvWaterV"
@@ -91,7 +90,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="13dp"
+        android:layout_marginTop="12dp"
         android:text="@string/strWater_V"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtAlcV"
@@ -104,15 +103,16 @@
         android:ems="10"
         android:hint="0"
         android:inputType="numberDecimal"
-        app:layout_constraintLeft_toLeftOf="@+id/edtAlcV"
         app:layout_constraintTop_toBottomOf="@+id/edtAlcV"
-        tools:layout_constraintTop_creator="1" />
+        tools:layout_constraintTop_creator="1"
+        app:layout_constraintLeft_toRightOf="@+id/tvWaterV"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp" />
 
     <TextView
         android:id="@+id/tvInitCube"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="3dp"
         android:text="@string/strInitCube"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -126,13 +126,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/strAlcInCube"
-        app:layout_constraintRight_toLeftOf="@+id/edtWaterV"
         tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@+id/edtWaterV"
         tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="@+id/edtWaterV" />
+        app:layout_constraintLeft_toLeftOf="@+id/tvWaterV" />
 
     <TextView
         android:id="@+id/tvVolAbsAlc"
@@ -140,20 +137,22 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="@string/strVolAbsAlcCur"
-        app:layout_constraintLeft_toLeftOf="@+id/tvAlcInCube"
         app:layout_constraintTop_toBottomOf="@+id/tvAlcInCube"
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintTop_creator="1"
-        android:layout_marginLeft="0dp" />
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginStart="16dp" />
 
     <TextView
         android:id="@+id/tvAlcInCubeOut"
-        android:layout_width="151dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginStart="8dp"
-        app:layout_constraintLeft_toRightOf="@+id/tvAlcInCube"
-        app:layout_constraintBaseline_toBaselineOf="@+id/tvAlcInCube" />
+        android:layout_marginRight="8dp"
+        android:text="@string/strPrcAA"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tvAlcInCube"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginEnd="8dp" />
 
     <TextView
         android:id="@+id/tvCurSet"
@@ -175,8 +174,7 @@
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/view1"
-        android:layout_marginEnd="8dp" />
+        app:layout_constraintTop_toBottomOf="@+id/view1" />
 
     <TextView
         android:id="@+id/tvAfterHeads"
@@ -188,8 +186,7 @@
         android:layout_marginStart="8dp"
         tools:layout_constraintLeft_creator="1"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="8dp" />
+        android:layout_marginLeft="8dp" />
 
     <TextView
         android:id="@+id/tvHeadsOut"
@@ -200,8 +197,7 @@
         app:layout_constraintBottom_toTopOf="@+id/view2"
         app:layout_constraintTop_toBottomOf="@+id/tvHeads"
         app:layout_constraintVertical_bias="1.0"
-        app:layout_constraintLeft_toLeftOf="@+id/tvHeads"
-        android:layout_marginLeft="0dp" />
+        app:layout_constraintLeft_toLeftOf="@+id/tvHeads" />
 
     <TextView
         android:id="@+id/tvAfterHeadsOut"
@@ -225,17 +221,14 @@
 
     <TextView
         android:id="@+id/tvVolAbsAlcOut"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
+        android:text="@string/strVolume"
         app:layout_constraintBaseline_toBaselineOf="@+id/tvVolAbsAlc"
-        app:layout_constraintLeft_toRightOf="@+id/tvVolAbsAlc"
         app:layout_constraintRight_toRightOf="parent"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintLeft_creator="1" />
+        tools:layout_constraintRight_creator="1" />
 
     <TextView
         android:id="@+id/tvBody"
@@ -247,8 +240,7 @@
         android:layout_marginStart="8dp"
         tools:layout_constraintLeft_creator="1"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="8dp" />
+        android:layout_marginLeft="8dp" />
 
     <Button
         android:id="@+id/dotbtnHeads"
@@ -327,8 +319,7 @@
         app:layout_constraintTop_toBottomOf="@+id/view5"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp" />
+        android:layout_marginStart="8dp" />
 
     <TextView
         android:id="@+id/tvTailsOut"
@@ -346,8 +337,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="@string/strCubeBottomBalance"
-        app:layout_constraintLeft_toLeftOf="@+id/tvVolAbsAlc"
-        app:layout_constraintTop_toBottomOf="@+id/tvVolAbsAlc" />
+        app:layout_constraintTop_toBottomOf="@+id/tvVolAbsAlc"
+        app:layout_constraintLeft_toLeftOf="@+id/tvVolAbsAlc" />
 
     <TextView
         android:id="@+id/textView2"
@@ -355,7 +346,7 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         app:layout_constraintLeft_toLeftOf="@+id/tvCubeBottom"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="7dp"
         app:layout_constraintTop_toBottomOf="@+id/tvCubeBottom" />
 
     <View
@@ -378,64 +369,64 @@
         android:id="@+id/view2"
         android:layout_width="0dp"
         android:layout_height="2dp"
-        android:layout_marginBottom="0dp"
+        android:layout_marginBottom="51dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="51dp"
         android:background="@color/colorPrimary"
-        app:layout_constraintBottom_toTopOf="@+id/dotbtnAfterHeads"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dotbtnHeads"
         tools:layout_constraintBottom_creator="1"
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintRight_creator="1"
-        tools:layout_constraintTop_creator="1" />
+        tools:layout_constraintTop_creator="1"
+        app:layout_constraintBottom_toBottomOf="@+id/dotbtnAfterHeads"
+        app:layout_constraintTop_toTopOf="@+id/dotbtnHeads" />
 
     <View
         android:id="@+id/view3"
         android:layout_width="0dp"
         android:layout_height="2dp"
-        android:layout_marginBottom="0dp"
+        android:layout_marginBottom="51dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="51dp"
         android:background="@color/colorPrimary"
-        app:layout_constraintBottom_toTopOf="@+id/dotbtnBody"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dotbtnAfterHeads"
         tools:layout_constraintBottom_creator="1"
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintRight_creator="1"
-        tools:layout_constraintTop_creator="1" />
+        tools:layout_constraintTop_creator="1"
+        app:layout_constraintBottom_toBottomOf="@+id/dotbtnBody"
+        app:layout_constraintTop_toTopOf="@+id/dotbtnAfterHeads" />
 
     <View
         android:id="@+id/view4"
         android:layout_width="0dp"
         android:layout_height="2dp"
-        android:layout_marginBottom="0dp"
+        android:layout_marginBottom="51dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="51dp"
         android:background="@color/colorPrimary"
-        app:layout_constraintBottom_toTopOf="@+id/dotbtnBeforeTails"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dotbtnBody"
         tools:layout_constraintBottom_creator="1"
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintRight_creator="1"
-        tools:layout_constraintTop_creator="1" />
+        tools:layout_constraintTop_creator="1"
+        app:layout_constraintBottom_toBottomOf="@+id/dotbtnBeforeTails"
+        app:layout_constraintTop_toTopOf="@+id/dotbtnBody" />
 
     <View
         android:id="@+id/view5"
@@ -453,10 +444,10 @@
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintRight_creator="1"
         tools:layout_constraintTop_creator="1"
-        android:layout_marginTop="0dp"
-        app:layout_constraintTop_toBottomOf="@+id/dotbtnBeforeTails"
-        android:layout_marginBottom="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/dotbtnTails" />
+        android:layout_marginTop="51dp"
+        android:layout_marginBottom="51dp"
+        app:layout_constraintBottom_toBottomOf="@+id/dotbtnTails"
+        app:layout_constraintTop_toTopOf="@+id/dotbtnBeforeTails" />
 
     <View
         android:id="@+id/view6"
@@ -465,12 +456,23 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:background="@color/colorPrimary"
-        android:layout_marginTop="0dp"
         app:layout_constraintTop_toBottomOf="@+id/dotbtnTails"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintHorizontal_bias="0.0" />
+        app:layout_constraintHorizontal_bias="0.0"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintLeft_creator="1" />
+
+    <TextView
+        android:id="@+id/tvCubeBottomOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="8dp"
+        android:text="@string/strCubeBotton"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tvCubeBottom"
+        android:layout_marginEnd="8dp" />
 
 </android.support.constraint.ConstraintLayout>

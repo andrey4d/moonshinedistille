@@ -21,11 +21,17 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
     private TextView tvBodyOut;
     private TextView tvBeforeTailsOut;
     private TextView tvTailsOut;
-    private TextView tvCubeBottom;
+    private TextView tvCubeBottomOut;
+    private TextView tvHeadsBase;
+    private TextView tvAHeadsBase;
+    private TextView tvBodyBase;
+    private TextView tvBTailsBase;
+    private TextView tvTailsBase;
 
     private EditText edtAlc;
     private EditText edtAlcV;
     private EditText edtWaterV;
+
 
     private SharedPreferences sPref;
 
@@ -101,51 +107,57 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
 
         int mIntentExtraVoluem =        data.getIntExtra(Constants.FRACTION_VOLUME, Constants.DEF_INT_NULL); // Объем фракции
         int mIntentExtraVoluemAA =      data.getIntExtra(Constants.FRACTION_ALC,    Constants.DEF_INT_NULL); // Объем абсолютный спирт фракции
-
-        String strOutFraction = mkFractionOutString(mIntentExtraVoluem,mIntentExtraVoluemAA);
+        int mIntentExtraPct      =      data.getIntExtra(Constants.FRACTION_PCT,    Constants.DEF_INT_NULL); // % фракции от АС
 
         switch (requestCode) {
             case Constants.REQUEST_CODE_HEADS:
-                calculate.setHeadVol(mIntentExtraVoluem); //записываем данные о объему фракции
-                calculate.setHeadVolAA(mIntentExtraVoluemAA);    //записываем данные о абсалютном спирти
-                tvHeadsOut.setText(strOutFraction);
+                 calculate.setHeadVol(mIntentExtraVoluem); //записываем данные о объему фракции
+                 calculate.setHeadVolAA(mIntentExtraVoluemAA);    //записываем данные о абсалютном спирти
+                 calculate.setmPctHead(mIntentExtraPct);         //записываем данные % от АС
                  break;
             case Constants.REQUEST_CODE_AFTER_HEADS:
-                calculate.setAHeadVol(mIntentExtraVoluem);
-                calculate.setAHeadVolAA(mIntentExtraVoluemAA);
-                tvAfterHeadsOut.setText(strOutFraction);
+                 calculate.setAHeadVol(mIntentExtraVoluem);
+                 calculate.setAHeadVolAA(mIntentExtraVoluemAA);
+                 calculate.setmPctAHead(mIntentExtraPct);
                 break;
             case Constants.REQUEST_CODE_BODY:
-                calculate.setBodyVol(mIntentExtraVoluem);
-                calculate.setBodyVolAA(mIntentExtraVoluemAA);
-                tvBodyOut.setText(strOutFraction);
+                 calculate.setBodyVol(mIntentExtraVoluem);
+                 calculate.setBodyVolAA(mIntentExtraVoluemAA);
+                 calculate.setmPctBody(mIntentExtraPct);
                 break;
             case Constants.REQUEST_CODE_BEFORE_TAILS:
-                calculate.setBTailsVol(mIntentExtraVoluem);
-                calculate.setBTailsVolAA(mIntentExtraVoluemAA);
-                tvBeforeTailsOut.setText(strOutFraction);
+                 calculate.setBTailsVol(mIntentExtraVoluem);
+                 calculate.setBTailsVolAA(mIntentExtraVoluemAA);
+                 calculate.setmPctBTails(mIntentExtraPct);
                 break;
             case Constants.REQUEST_CODE_TAILS:
-                calculate.setTailsVol(mIntentExtraVoluem);
-                calculate.setTailsVolAA(mIntentExtraVoluemAA);
-                tvTailsOut.setText(strOutFraction);
+                 calculate.setTailsVol(mIntentExtraVoluem);
+                 calculate.setTailsVolAA(mIntentExtraVoluemAA);
+                 calculate.setmPctTails(mIntentExtraPct);
                 break;
         }
 
-        saveFractionData(Constants.KEY_MAIN_ACTIVITY + requestCode,mIntentExtraVoluem,mIntentExtraVoluemAA);
+        saveFractionData(Constants.KEY_MAIN_ACTIVITY + requestCode,mIntentExtraVoluem,mIntentExtraVoluemAA,mIntentExtraPct);
 
         onCalculate(); // Расчет
         outCubeParametr(); // вывод параметров куба
+        outAllFraction(); //Вывод данных о фракциях
 
     }
 
-    private String mkFractionOutString(int fractionVol, int fractinVolAA){
-        return(String.valueOf(fractionVol) +
+    private String mkSelectedFractionOutString(int fractionVol, int fractinVolAA){
+        return(getString(R.string.strSelect)+getString(R.string.strSpace)+ String.valueOf(fractionVol) +
                         getString(R.string.strMl) + getString(R.string.strComma)+getString(R.string.strSpace)
                         + String.valueOf(calculate.getAlcFraction(fractionVol,fractinVolAA)) + getString(R.string.strPercent) // крепость фракции
                         + getString(R.string.strComma)+getString(R.string.strSpace)
                         + getString(R.string.strAbsAlcohol)+getString(R.string.strSpace)+String.valueOf(fractinVolAA) +getString(R.string.strMl));
     }
+
+    private String mkBaseFractionOutString(String titleFraction, int pctFraction){
+        return(titleFraction+getString(R.string.strComma)+ String.valueOf(pctFraction)+getString(R.string.strPercent));
+    }
+
+
 
     void InitLayoutObject() {
         tvAlcInCubeOut = (TextView) findViewById(R.id.tvAlcInCubeOut);
@@ -155,7 +167,13 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
         tvBodyOut = (TextView) findViewById(R.id.tvBodyOut);
         tvBeforeTailsOut = (TextView) findViewById(R.id.tvBeforeTailsOut);
         tvTailsOut = (TextView) findViewById(R.id.tvTailsOut);
-        tvCubeBottom = (TextView) findViewById(R.id.tvCubeBottom);
+        tvCubeBottomOut = (TextView) findViewById(R.id.tvCubeBottomOut);
+
+        tvHeadsBase  =(TextView) findViewById(R.id.tvHeads);
+        tvAHeadsBase =(TextView) findViewById(R.id.tvAfterHeads);
+        tvBodyBase   =(TextView) findViewById(R.id.tvBody);
+        tvBTailsBase =(TextView) findViewById(R.id.tvBeforeTails);
+        tvTailsBase  =(TextView) findViewById(R.id.tvTails);
 
         edtAlc          = (EditText) findViewById(R.id.edtAlc01);
         edtAlc.setOnFocusChangeListener(this);
@@ -189,12 +207,12 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
         edtWaterV.setText   (sPref.getString(key+Constants.WATERVOL,   String.valueOf(Constants.DEF_VAL_WATER)));
     }
 
-    private void saveFractionData(String key, int dataVol, int dataAlc){
+    private void saveFractionData(String key, int dataVol, int dataAlc, int dataPct){
         sPref = getPreferences(MODE_PRIVATE);
         SharedPreferences.Editor spEditor = sPref.edit();
-
         spEditor.putInt(key+Constants.VOL,dataVol);
         spEditor.putInt(key+Constants.ALC,dataAlc);
+        spEditor.putInt(key+Constants.PCT, dataPct);
         spEditor.commit();
 
     }
@@ -202,30 +220,45 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
         sPref = getPreferences(MODE_PRIVATE);
         //key= Constants.KEY_MAIN_ACTIVITY + requestCode+Constants.VOL||+Constants.ALC
         // requestCode 1-5
+
         calculate.setHeadVol(sPref.getInt(key+1+Constants.VOL, Constants.DEF_INT_NULL)); //записываем данные о объему фракции
         calculate.setHeadVolAA(sPref.getInt(key+1+Constants.ALC, Constants.DEF_INT_NULL));    //записываем данные о абсалютном спирти
+        calculate.setmPctHead(sPref.getInt(key+1+Constants.PCT,Integer.valueOf(Constants.DEF_VAL_HEADS)));
+
         calculate.setAHeadVol(sPref.getInt(key+2+Constants.VOL, Constants.DEF_INT_NULL));
         calculate.setAHeadVolAA(sPref.getInt(key+2+Constants.ALC, Constants.DEF_INT_NULL));
+        calculate.setmPctAHead(sPref.getInt(key+2+Constants.PCT,Integer.valueOf(Constants.DEF_VAL_AHEADS)));
+
         calculate.setBodyVol(sPref.getInt(key+3+Constants.VOL, Constants.DEF_INT_NULL));
         calculate.setBodyVolAA(sPref.getInt(key+3+Constants.ALC, Constants.DEF_INT_NULL));
+        calculate.setmPctBody(sPref.getInt(key+3+Constants.PCT,Integer.valueOf(Constants.DEF_VAL_BODY)));
+
         calculate.setBTailsVol(sPref.getInt(key+4+Constants.VOL, Constants.DEF_INT_NULL));
         calculate.setBTailsVolAA(sPref.getInt(key+4+Constants.ALC, Constants.DEF_INT_NULL));
+        calculate.setmPctBTails(sPref.getInt(key+4+Constants.PCT,Integer.valueOf(Constants.DEF_VAL_BTAILS)));
+
         calculate.setTailsVol(sPref.getInt(key+5+Constants.VOL, Constants.DEF_INT_NULL));
         calculate.setTailsVolAA(sPref.getInt(key+5+Constants.ALC, Constants.DEF_INT_NULL));
+        calculate.setmPctTails(sPref.getInt(key+5+Constants.PCT,Integer.valueOf(Constants.DEF_VAL_TAILS)));
     }
 
     private void outAllFraction(){
-        tvHeadsOut.setText(mkFractionOutString(calculate.getHeadVol(),calculate.getHeadVolAA()));
-        tvAfterHeadsOut.setText(mkFractionOutString(calculate.getAHeadVol(),calculate.getAHeadVolAA()));
-        tvBodyOut.setText(mkFractionOutString(calculate.getBodyVol(),calculate.getBodyVolAA()));
-        tvBeforeTailsOut.setText(mkFractionOutString(calculate.getBTailsVol(),calculate.getBTailsVolAA()));
-        tvTailsOut.setText(mkFractionOutString(calculate.getTailsVol(),calculate.getTailsVolAA()));
+        tvHeadsOut.setText(mkSelectedFractionOutString(calculate.getHeadVol(),calculate.getHeadVolAA()));
+        tvAfterHeadsOut.setText(mkSelectedFractionOutString(calculate.getAHeadVol(),calculate.getAHeadVolAA()));
+        tvBodyOut.setText(mkSelectedFractionOutString(calculate.getBodyVol(),calculate.getBodyVolAA()));
+        tvBeforeTailsOut.setText(mkSelectedFractionOutString(calculate.getBTailsVol(),calculate.getBTailsVolAA()));
+        tvTailsOut.setText(mkSelectedFractionOutString(calculate.getTailsVol(),calculate.getTailsVolAA()));
+
+        tvHeadsBase.setText(mkBaseFractionOutString(getString(R.string.strHeads),calculate.getmPctHead()));
+        tvAHeadsBase.setText(mkBaseFractionOutString(getString(R.string.strAfterHeads),calculate.getmPctAHead()));
+        tvBodyBase.setText(mkBaseFractionOutString(getString(R.string.strBody),calculate.getmPctBody()));
+        tvBTailsBase.setText(mkBaseFractionOutString(getString(R.string.strBeforeTails),calculate.getmPctBTails()));
+        tvTailsBase.setText(mkBaseFractionOutString(getString(R.string.strTails),calculate.getmPctTails()));
     }
     private void outCubeParametr(){
-        tvAlcInCubeOut.setText(String.valueOf(calculate.AlcInCudeCur()));
-        tvVolAbsAlcOut.setText(String.valueOf(calculate.getmVolAACur()));
-        tvCubeBottom.setText(getString(R.string.strCubeBottomBalance)+getString(R.string.strSpace)+String.valueOf(calculate.getCubeBottom()));
-
+        tvAlcInCubeOut.setText(String.valueOf(calculate.AlcInCudeCur())+getString(R.string.strSpace)+getString(R.string.strPercent));
+        tvVolAbsAlcOut.setText(String.valueOf(calculate.getmVolAACur())+getString(R.string.strSpace)+getString(R.string.strMl));
+        tvCubeBottomOut.setText(String.valueOf(calculate.getCubeBottom())+getString(R.string.strSpace)+getString(R.string.strMl));
     }
     @Override
     public void onFocusChange(View v, boolean hasFocus) {

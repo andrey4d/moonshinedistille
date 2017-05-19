@@ -21,6 +21,7 @@ public class Constants {
     final static public String KEY_MAIN_ACTIVITY = "MAIN_KEY";
     final static public String ALC= "ALC";
     final static public String VOL= "VOL";
+    final static public String PCT= "%";
     final static public String RAWVOL = "RAWVOL";
     final static public String WATERVOL = "WATERVOL";
 
@@ -38,6 +39,7 @@ public class Constants {
 
     final static public String FRACTION_VOLUME = "FractionVolume";
     final static public String FRACTION_ALC = "FractionAlc";
+    final static public String FRACTION_PCT = "FractionPct";
 
 
 

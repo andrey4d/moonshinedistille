@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class HeadsActivity extends AppCompatActivity implements View.OnClickListener {
+public class HeadsActivity extends AppCompatActivity implements View.OnClickListener, View.OnFocusChangeListener {
 
     private TextView tvTitle;
     private Button btnSave;
@@ -30,9 +30,18 @@ public class HeadsActivity extends AppCompatActivity implements View.OnClickList
 
     private int mVolume;
     private int mVolAbsAlcogol;
+    private int mPctAA;
+
     private String mAction;
 
     private String mDefaultVolFraction;
+
+    private int mPctHead; //Процент голов от АС
+    private int mPctAHead;
+    private int mPctBody;
+    private int mPctBTails;
+    private int mPctTails;
+
 
     SharedPreferences sPref;
 
@@ -53,6 +62,7 @@ public class HeadsActivity extends AppCompatActivity implements View.OnClickList
 
         intent.putExtra(Constants.FRACTION_VOLUME, mVolume);
         intent.putExtra(Constants.FRACTION_ALC, mVolAbsAlcogol);
+        intent.putExtra(Constants.FRACTION_PCT,mPctAA);
         setResult(RESULT_OK, intent);
         finish();
     }
@@ -77,6 +87,9 @@ public class HeadsActivity extends AppCompatActivity implements View.OnClickList
       int mVolAbsAlc = 0;
       String mVolStr = "0";
       String mAlcStr = "0";
+
+
+        mPctAA = Integer.valueOf(edtFractionPercent.getText().toString()); // получаем % фракции от АС
 
         mVolStr = etdVolume01.getText().toString();
         if(!mVolStr.isEmpty()) {
@@ -130,6 +143,7 @@ public class HeadsActivity extends AppCompatActivity implements View.OnClickList
         btnSave.setOnClickListener(this);
 
       edtFractionPercent = (EditText)findViewById(R.id.edtFractionPercent);
+      edtFractionPercent.setOnFocusChangeListener(this);
 
       etdVolume01 = (EditText)findViewById(R.id.etdVolume01);
       etdVolume02 = (EditText)findViewById(R.id.etdVolume02);
@@ -173,7 +187,6 @@ public class HeadsActivity extends AppCompatActivity implements View.OnClickList
     private void saveData(String key) {
         sPref = getPreferences(MODE_PRIVATE);
         SharedPreferences.Editor outState = sPref.edit();
-
         outState.putString(key+"%",edtFractionPercent.getText().toString());
 
         outState.putString(key+"V1",etdVolume01.getText().toString());
@@ -193,6 +206,7 @@ public class HeadsActivity extends AppCompatActivity implements View.OnClickList
     void loadData(String key) {
         sPref = getPreferences(MODE_PRIVATE);
         edtFractionPercent.setText(sPref.getString(key+"%",mDefaultVolFraction));
+
         etdVolume01.setText(sPref.getString(key+"V1",""));
         etdVolume02.setText(sPref.getString(key+"V2",""));
         etdVolume03.setText(sPref.getString(key+"V3",""));
@@ -204,6 +218,27 @@ public class HeadsActivity extends AppCompatActivity implements View.OnClickList
         edtAlc03.setText(sPref.getString(key+"A3",""));
         edtAlc04.setText(sPref.getString(key+"A4",""));
         edtAlc05.setText(sPref.getString(key+"A5",""));
+
+        mPctHead   = sPref.getInt(Constants.KEY_MAIN_ACTIVITY+1+Constants.PCT,Integer.valueOf(Constants.DEF_VAL_HEADS));
+        mPctAHead  = sPref.getInt(Constants.KEY_MAIN_ACTIVITY+2+Constants.PCT,Integer.valueOf(Constants.DEF_VAL_AHEADS));
+        mPctBody   = sPref.getInt(Constants.KEY_MAIN_ACTIVITY+3+Constants.PCT,Integer.valueOf(Constants.DEF_VAL_BODY));
+        mPctBTails = sPref.getInt(Constants.KEY_MAIN_ACTIVITY+4+Constants.PCT,Integer.valueOf(Constants.DEF_VAL_BTAILS));
+        mPctTails  = sPref.getInt(Constants.KEY_MAIN_ACTIVITY+5+Constants.PCT,Integer.valueOf(Constants.DEF_VAL_TAILS));
+
+
+    }
+    void loadPctData(String key){
+
     }
 
+
+    @Override
+    public void onFocusChange(View v, boolean hasFocus) {
+        if(!hasFocus) {
+
+
+
+        //Проверка на привышение 100% процентов по объему АС
+        }
+    }
 }
