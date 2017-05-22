@@ -14,9 +14,6 @@ public class Calculate {
     private int mVolAACur;     // Текущие параметры абсальтно спирта
     private int mBottomBalance; // кубовой остаток
 
-    private int mVolFraction; //объем фракции
-    private int mAbsFraction; //абсалютный спирт фракции
-
     private int mPctHead; //Процент голов от АС
     private int mPctAHead;
     private int mPctBody;
@@ -24,15 +21,15 @@ public class Calculate {
     private int mPctTails;
 
     private int mHeadVol;
-    private int mHeadVolAA;
+    private float mHeadVolAA;
     private int mAHeadVol;
-    private int mAHeadVolAA;
+    private float mAHeadVolAA;
     private int mBodyVol;
-    private int mBodyVolAA;
+    private float mBodyVolAA;
     private int mBTailsVol;
-    private int mBTailsVolAA;
+    private float mBTailsVolAA;
     private int mTailsVol;
-    private int mTailsVolAA;
+    private float mTailsVolAA;
 
     Calculate(){ // Конструктор
         this.mAlcRAW     =Constants.DEF_ACL_RAW;
@@ -46,12 +43,12 @@ public class Calculate {
         this.mPctTails  = Integer.valueOf(Constants.DEF_VAL_TAILS );
     }
 
-    public void onCalculate(){
-        this.mVolAbsAlc      = mAlcRAW* mVolRAW /100;                                                       //Объем обсолютного спирта
-        this.mAlcInCude      = mVolAbsAlc *100/(mVolRAW + mVolWater);                                       //спиртуозность в кубе
+    public void doCalculate(){
+        this.mVolAbsAlc      = Math.round(mAlcRAW* mVolRAW /100);                                                       //Объем обсолютного спирта
+        this.mAlcInCude      = Math.round(mVolAbsAlc *100/(mVolRAW + mVolWater));                                       //спиртуозность в кубе
         this.mBottomBalance  = (mVolRAW + mVolWater)-(mHeadVol+mAHeadVol+mBodyVol+mBTailsVol+mTailsVol);    //Расчет кубового остатка
-        this.mVolAACur       = mVolAbsAlc-(mHeadVolAA+mAHeadVolAA+mBodyVolAA+mBTailsVolAA+mTailsVolAA);//Объем обсолютного спирта в кубе оостаток
-        this.mAlcInCudeCur   = 100*mVolAACur/mBottomBalance;
+        this.mVolAACur       = mVolAbsAlc-Math.round(mHeadVolAA+mAHeadVolAA+mBodyVolAA+mBTailsVolAA+mTailsVolAA);     //Объем обсолютного спирта в кубе оостаток
+        this.mAlcInCudeCur   = Math.round(100*mVolAACur/mBottomBalance);
     }
 
     public int getCubeBottom(){
@@ -63,16 +60,30 @@ public class Calculate {
         return  mText;
     }
 
-    //расчет объема фракции из абсалютного спирта фракции
-    public int getVlolumeFractions(int volAbsAlcogolFraction, int fractionAlcogol) {
-        return (volAbsAlcogolFraction/fractionAlcogol*100);
-    }
+//    //расчет объема фракции из абсалютного спирта фракции
+//    public int getVolumeFractions(int volAbsAlcogolFraction, int fractionAlcogol) {
+//        int vol = Math.round(100*volAbsAlcogolFraction/fractionAlcogol);
+//        return (vol);
+//    }
+//
+//    public int getAlcFraction(int volFraction, int volAAFraction){ // % спирта во фракции
+//        if(volFraction == 0) {return(0);}
+//        else {
+//            return (Math.round(volAAFraction * 100 / volFraction));
+//        }
+//    }
 
-    public int getAlcFraction(int volFraction, int volAAFraction){ // % спирта во фракции
+    public float getfAlcFraction(int volFraction, float volAAFraction) { // % спирта во фракции
         if(volFraction == 0) {return(0);}
         else {
             return (volAAFraction * 100 / volFraction);
         }
+    }
+
+    // Расчет АС фракции от объема АС
+    public String baseFractionAA(int pctFraction){
+        int baseAA=Math.round(mVolAbsAlc/100*pctFraction);
+        return (String.valueOf(baseAA));
     }
 
     //------Getter & Setter---------------------------------------------------------------------------
@@ -115,11 +126,11 @@ public class Calculate {
         this.mHeadVol = mHeadVol;
     }
 
-    public int getHeadVolAA() {
+    public float getHeadVolAA() {
         return mHeadVolAA;
     }
 
-    public void setHeadVolAA(int mHeadAbs) {
+    public void setHeadVolAA(float mHeadAbs) {
         this.mHeadVolAA = mHeadAbs;
     }
 
@@ -131,11 +142,11 @@ public class Calculate {
         this.mAHeadVol = mAHeadVol;
     }
 
-    public int getAHeadVolAA() {
+    public float getAHeadVolAA() {
         return mAHeadVolAA;
     }
 
-    public void setAHeadVolAA(int mAHeadAbs) {
+    public void setAHeadVolAA(float mAHeadAbs) {
         this.mAHeadVolAA = mAHeadAbs;
     }
 
@@ -147,11 +158,11 @@ public class Calculate {
         this.mBodyVol = mBodyVol;
     }
 
-    public int getBodyVolAA() {
+    public float getBodyVolAA() {
         return mBodyVolAA;
     }
 
-    public void setBodyVolAA(int mBodyAbs) {
+    public void setBodyVolAA(float mBodyAbs) {
         this.mBodyVolAA = mBodyAbs;
     }
 
@@ -163,11 +174,11 @@ public class Calculate {
         this.mBTailsVol = mBTailsVol;
     }
 
-    public int getBTailsVolAA() {
+    public float getBTailsVolAA() {
         return mBTailsVolAA;
     }
 
-    public void setBTailsVolAA(int mBTailsAbs) {
+    public void setBTailsVolAA(float mBTailsAbs) {
         this.mBTailsVolAA = mBTailsAbs;
     }
 
@@ -179,11 +190,11 @@ public class Calculate {
         this.mTailsVol = mTailsVol;
     }
 
-    public int getTailsVolAA() {
+    public float getTailsVolAA() {
         return mTailsVolAA;
     }
 
-    public void setTailsVolAA(int mTailsAbs) {
+    public void setTailsVolAA(float mTailsAbs) {
         this.mTailsVolAA = mTailsAbs;
     }
 
