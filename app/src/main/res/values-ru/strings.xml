@@ -25,7 +25,7 @@
     <string name="strInitCube">Параметры куба</string>
     <string name="strCubeBottomBalance">Кубовой остаток:</string>
     <string name="strBodyFraction">Фракция тела</string>
-    <string name="strBody">Тела</string>
+    <string name="strBody">Тело</string>
     <string name="strBeforeTailsBTN">Предхвостие</string>
     <string name="strBeforeTails">Предхвостий</string>
     <string name="strBeforeTailFraction">Фракция предхвостий</string>
@@ -39,4 +39,7 @@
     <string name="strSpace">" "</string>
     <string name="strPrcAA">% от АС</string>
     <string name="strSelect">Отобрано</string>
+    <string name="strQuit">Выход</string>
+    <string name="strClear">Очистить данные</string>
+    <string name="strInfo">Инфа</string>
 </resources>

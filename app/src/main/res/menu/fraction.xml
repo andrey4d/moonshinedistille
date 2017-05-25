@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/fractionClear"
+        android:icon="@drawable/ic_action_clear_w"
+        android:title="@string/strClear"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/fractionSave"
+        android:icon="@drawable/ic_action_save_w"
+        android:title="@string/strSave"
+        app:showAsAction="ifRoom" />
+</menu>

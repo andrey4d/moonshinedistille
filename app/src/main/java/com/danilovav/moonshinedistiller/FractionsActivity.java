@@ -4,12 +4,14 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class HeadsActivity extends AppCompatActivity implements View.OnClickListener, View.OnFocusChangeListener {
+public class FractionsActivity extends AppCompatActivity implements View.OnClickListener, View.OnFocusChangeListener {
 
     private TextView tvTitle;
 
@@ -47,7 +49,7 @@ public class HeadsActivity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_heads);
+        setContentView(R.layout.fractions_heads);
         mAction = getIntent().getAction();
         InitLayoutObject();
 
@@ -55,14 +57,7 @@ public class HeadsActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View v) {
-        Intent intent = new Intent();
-
-        calcFraction(); //Расчет объема фракции и аобъема абсалютного спирта
-
-        intent.putExtra(Constants.FRACTION_VOLUME, mVolume);
-        intent.putExtra(Constants.FRACTION_ALC, mVolAA);
-        intent.putExtra(Constants.FRACTION_PCT,mPctAA);
-        setResult(RESULT_OK, intent);
+        fraction();
         finish();
     }
 
@@ -79,14 +74,23 @@ public class HeadsActivity extends AppCompatActivity implements View.OnClickList
     }
 
 
+    private void fraction(){
+        Intent intent = new Intent();
+
+        getFraction(); //Расчет объема фракции и аобъема абсалютного спирта
+
+        intent.putExtra(Constants.FRACTION_VOLUME, mVolume);
+        intent.putExtra(Constants.FRACTION_ALC, mVolAA);
+        intent.putExtra(Constants.FRACTION_PCT,mPctAA);
+        setResult(RESULT_OK, intent);
+    }
 
     // расчет объема
-    private void calcFraction(){
+    private void getFraction(){
       int mVol =0;
       float mVolAbsAlc = 0;
       String mVolStr;
       String mAlcStr;
-
 
         mPctAA = Integer.valueOf(edtFractionPercent.getText().toString()); // получаем % фракции от АС
 
@@ -201,7 +205,7 @@ public class HeadsActivity extends AppCompatActivity implements View.OnClickList
         outState.putString(key+"A3",edtAlc03.getText().toString());
         outState.putString(key+"A4",edtAlc04.getText().toString());
         outState.putString(key+"A5",edtAlc05.getText().toString());
-        outState.commit();
+        outState.apply();
     }
 
     void loadData(String key) {
@@ -220,16 +224,7 @@ public class HeadsActivity extends AppCompatActivity implements View.OnClickList
         edtAlc04.setText(sPref.getString(key+"A4",""));
         edtAlc05.setText(sPref.getString(key+"A5",""));
 
-//        mPctHead   = sPref.getInt(Constants.KEY_MAIN_ACTIVITY+1+Constants.PCT,Integer.valueOf(Constants.DEF_VAL_HEADS));
-//        mPctAHead  = sPref.getInt(Constants.KEY_MAIN_ACTIVITY+2+Constants.PCT,Integer.valueOf(Constants.DEF_VAL_AHEADS));
-//        mPctBody   = sPref.getInt(Constants.KEY_MAIN_ACTIVITY+3+Constants.PCT,Integer.valueOf(Constants.DEF_VAL_BODY));
-//        mPctBTails = sPref.getInt(Constants.KEY_MAIN_ACTIVITY+4+Constants.PCT,Integer.valueOf(Constants.DEF_VAL_BTAILS));
-//        mPctTails  = sPref.getInt(Constants.KEY_MAIN_ACTIVITY+5+Constants.PCT,Integer.valueOf(Constants.DEF_VAL_TAILS));
-
-
     }
-
-
 
     @Override
     public void onFocusChange(View v, boolean hasFocus) {
@@ -237,4 +232,36 @@ public class HeadsActivity extends AppCompatActivity implements View.OnClickList
         //Проверка на привышение 100% процентов по объему АС
         }
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.fraction, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        switch (item.getItemId()){
+            case R.id.fractionClear:
+                clearFractionData();
+                break;
+            case R.id.fractionSave:
+                fraction();
+                finish();
+                break;
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void clearFractionData() {
+        getPreferences(MODE_PRIVATE).edit().clear().apply();
+        loadData(mAction);
+    }
+
 }

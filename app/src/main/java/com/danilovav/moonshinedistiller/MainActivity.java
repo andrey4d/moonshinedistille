@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
@@ -60,7 +62,6 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
     }
 
     public void onCalculate() {
-
         hidekeybord();
         calculate.setAlcRAW(edtAlc.getText().toString()); //получение данных от активити
         calculate.setValRAW(edtAlcV.getText().toString());
@@ -69,11 +70,10 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
         calculate.doCalculate();
         outCubeParametr();// вывод параметров куба
         outAllFraction(); // вывод параметров фракций на экран
-
     }
 
     public void onClick3dotButton(View view) {
-        Intent intent = new Intent(this, HeadsActivity.class);
+        Intent intent = new Intent(this, FractionsActivity.class);
 
         switch (view.getId()) {
             case R.id.dotbtnHeads:
@@ -210,7 +210,7 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
         spEditor.putString(key+Constants.RAWVOL,    edtAlcV.getText().toString());
         spEditor.putString(key+Constants.WATERVOL,  edtWaterV.getText().toString());
 //        spEditor.putString(Constants.BODY+"%",String.valueOf(calculate.getmPctBody()));
-        spEditor.commit();
+        spEditor.apply();
     }
 
     void loadData(String key) {
@@ -279,6 +279,42 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
             onCalculate();
             Toast.makeText(getApplicationContext(), "Calculate!", Toast.LENGTH_SHORT).show();
         }
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        switch (item.getItemId()){
+            case R.id.menuClear:
+                clearData();
+                break;
+            case R.id.menuExit:
+                finish();
+                break;
+
+        }
+       return super.onOptionsItemSelected(item);
+    }
+
+    private void clearData(){
+        sPref = getPreferences(MODE_PRIVATE);
+        SharedPreferences.Editor spEditor = sPref.edit();
+        spEditor.clear();
+        spEditor.apply();
+
+        loadData(Constants.KEY_MAIN_ACTIVITY);
+        loadFractionData(Constants.KEY_MAIN_ACTIVITY);
+        onCalculate();
     }
 }
 
