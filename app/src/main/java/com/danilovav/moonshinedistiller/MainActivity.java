@@ -141,9 +141,6 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
         saveFractionData(Constants.KEY_MAIN_ACTIVITY + requestCode,mIntentExtraVoluem,mIntentExtraVoluemAA,mIntentExtraPct);
 
         onCalculate(); // Расчет
-//        outCubeParametr(); // вывод параметров куба
-//        outAllFraction(); //Вывод данных о фракциях
-
     }
 
     private String mkSelectedFractionOutString(int fractionVol, float fractinVolAA){
@@ -213,7 +210,7 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
         spEditor.apply();
     }
 
-    void loadData(String key) {
+    private void loadData(String key) {
         sPref = getPreferences(MODE_PRIVATE);
         edtAlc.setText      (sPref.getString(key+Constants.ALC,        String.valueOf(Constants.DEF_ACL_RAW)));
         edtAlcV.setText     (sPref.getString(key+Constants.RAWVOL,     String.valueOf(Constants.DEF_VAL_ACL_RAW)));
@@ -226,7 +223,7 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
         spEditor.putInt(key+Constants.VOL,dataVol);
         spEditor.putFloat(key+Constants.ALC,dataAlc);
         spEditor.putInt(key+Constants.PCT, dataPct);
-        spEditor.commit();
+        spEditor.apply();
 
     }
     private void loadFractionData(String key){
@@ -289,11 +286,6 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
         switch (item.getItemId()){
             case R.id.menuClear:
                 clearData();
@@ -301,16 +293,14 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
             case R.id.menuExit:
                 finish();
                 break;
-
+            case R.id.menuInfo:
+                break;
         }
        return super.onOptionsItemSelected(item);
     }
 
     private void clearData(){
-        sPref = getPreferences(MODE_PRIVATE);
-        SharedPreferences.Editor spEditor = sPref.edit();
-        spEditor.clear();
-        spEditor.apply();
+        getPreferences(MODE_PRIVATE).edit().clear().apply();
 
         loadData(Constants.KEY_MAIN_ACTIVITY);
         loadFractionData(Constants.KEY_MAIN_ACTIVITY);

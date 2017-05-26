@@ -37,13 +37,6 @@ public class FractionsActivity extends AppCompatActivity implements View.OnClick
 
     private String mDefaultVolFraction;
 
-//    private int mPctHead; //Процент голов от АС
-//    private int mPctAHead;
-//    private int mPctBody;
-//    private int mPctBTails;
-//    private int mPctTails;
-
-
     SharedPreferences sPref;
 
     @Override
@@ -126,8 +119,8 @@ public class FractionsActivity extends AppCompatActivity implements View.OnClick
         }
 
 
-        mVolume        =mVol;
-        mVolAA =mVolAbsAlc;
+        mVolume         =mVol;
+        mVolAA          =mVolAbsAlc;
   }
 
     //Расчет абсолютного алкоголя
@@ -234,19 +227,13 @@ public class FractionsActivity extends AppCompatActivity implements View.OnClick
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.fraction, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        switch (item.getItemId()){
+         switch (item.getItemId()){
             case R.id.fractionClear:
                 clearFractionData();
                 break;
@@ -254,7 +241,6 @@ public class FractionsActivity extends AppCompatActivity implements View.OnClick
                 fraction();
                 finish();
                 break;
-
         }
         return super.onOptionsItemSelected(item);
     }

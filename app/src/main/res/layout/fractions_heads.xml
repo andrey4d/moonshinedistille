@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.danilovav.moonshinedistiller.FractionsActivity"
+    tools:context="com.danilovav.moonshinedistiller.FractionsActivity">
+
+    <android.support.constraint.ConstraintLayout
     tools:layout_editor_absoluteY="81dp"
-    tools:layout_editor_absoluteX="0dp">
+    tools:layout_editor_absoluteX="0dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     <TextView
      android:id="@+id/tvTitle"
@@ -19,7 +23,9 @@
      app:layout_constraintRight_toRightOf="parent"
      android:layout_marginLeft="8dp"
      app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintHorizontal_bias="0.502" />
+        app:layout_constraintHorizontal_bias="0.502"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
 
 
     <TextView
@@ -47,10 +53,10 @@
     <EditText
         android:id="@+id/etdVolume01"
         android:layout_width="88dp"
-        android:layout_height="46dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:hint="100"
+        android:hint="@string/str_100"
         android:inputType="numberDecimal"
         app:layout_constraintLeft_toLeftOf="@+id/tvVolume"
         app:layout_constraintRight_toRightOf="@+id/tvVolume"
@@ -62,7 +68,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:hint="93"
+        android:hint="@string/str_93"
         android:inputType="numberDecimal"
         app:layout_constraintLeft_toLeftOf="@+id/tvAlc"
         app:layout_constraintRight_toRightOf="@+id/tvAlc"
@@ -75,7 +81,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:hint="0"
         android:inputType="numberDecimal"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="@+id/etdVolume01"
@@ -88,7 +93,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:hint="0"
         android:inputType="numberDecimal"
         app:layout_constraintLeft_toLeftOf="@+id/edtAlc01"
         app:layout_constraintRight_toRightOf="@+id/edtAlc01"
@@ -100,7 +104,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:hint="0"
         android:inputType="numberDecimal"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="@+id/etdVolume02"
@@ -111,20 +114,19 @@
         android:id="@+id/edtAlc03"
         android:layout_width="88dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
-        android:hint="0"
         android:inputType="numberDecimal"
         app:layout_constraintLeft_toLeftOf="@+id/edtAlc02"
         app:layout_constraintRight_toRightOf="@+id/edtAlc02"
-        app:layout_constraintTop_toBottomOf="@+id/edtAlc02" />
+        app:layout_constraintTop_toBottomOf="@+id/edtAlc02"
+        app:layout_constraintHorizontal_bias="0.0" />
 
     <EditText
         android:id="@+id/etdVolume04"
         android:layout_width="88dp"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="0"
         android:inputType="numberDecimal"
         app:layout_constraintLeft_toLeftOf="@+id/etdVolume03"
         app:layout_constraintRight_toRightOf="@+id/etdVolume03"
@@ -137,7 +139,6 @@
         android:layout_width="88dp"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="0"
         android:inputType="numberDecimal"
         android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@+id/edtAlc03"
@@ -149,19 +150,18 @@
         android:layout_width="88dp"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="0"
         android:inputType="numberDecimal"
         android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@+id/edtAlc04"
         app:layout_constraintLeft_toLeftOf="@+id/edtAlc04"
-        app:layout_constraintRight_toRightOf="@+id/edtAlc04" />
+        app:layout_constraintRight_toRightOf="@+id/edtAlc04"
+        app:layout_constraintHorizontal_bias="0.0" />
 
     <EditText
         android:id="@+id/etdVolume05"
         android:layout_width="88dp"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="0"
         android:inputType="numberDecimal"
         app:layout_constraintLeft_toLeftOf="@+id/etdVolume04"
         app:layout_constraintRight_toRightOf="@+id/etdVolume04"
@@ -176,8 +176,8 @@
         android:text="@string/strSave"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="30dp" />
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/view2" />
 
     <View
         android:layout_width="2dp"
@@ -186,11 +186,9 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        android:layout_marginBottom="64dp"
-        android:layout_marginTop="0dp"
         app:layout_constraintTop_toBottomOf="@+id/edtFractionPercent"
-        app:layout_constraintBottom_toTopOf="@+id/btnSave"
-        android:id="@+id/view2" />
+        android:id="@+id/view2"
+        app:layout_constraintBottom_toBottomOf="@+id/edtAlc05" />
 
     <EditText
         android:id="@+id/edtFractionPercent"
@@ -198,21 +196,24 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:ems="10"
-        android:hint="100"
+        android:hint="@string/str_100"
         android:inputType="number"
-        android:text="100"
+        android:text="@string/str_100"
         app:layout_constraintBaseline_toBaselineOf="@+id/tvTitle"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toRightOf="@+id/tvTitle"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintRight_toRightOf="parent"
+        tools:ignore="RtlHardcoded"
+        android:layout_marginStart="8dp" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="0dp"
         android:text="@string/strPrcAA"
         app:layout_constraintLeft_toRightOf="@+id/edtFractionPercent"
-        app:layout_constraintBaseline_toBaselineOf="@+id/edtFractionPercent" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/edtFractionPercent"
+        tools:ignore="RtlHardcoded" />
 
 </android.support.constraint.ConstraintLayout>
+</ScrollView>

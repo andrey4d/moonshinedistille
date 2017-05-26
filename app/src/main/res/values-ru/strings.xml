@@ -42,4 +42,9 @@
     <string name="strQuit">Выход</string>
     <string name="strClear">Очистить данные</string>
     <string name="strInfo">Инфа</string>
+    <string name="str_100">100</string>
+    <string name="str_93">93</string>
+    <string name="str_0">0</string>
+    <string name="str_27">27</string>
+    <string name="str_1000">1000</string>
 </resources>
