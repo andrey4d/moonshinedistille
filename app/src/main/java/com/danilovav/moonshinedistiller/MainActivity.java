@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        calculate = new Calculate(); // Создание объекта из класа калькулятор
+        calculate = new Calculate(); // Создание объекта из класса калькулятор
         InitLayoutObject(); // Инициализация ТекстВью и ЕдитТекст на разметке
     }
 
@@ -274,7 +274,7 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
     public void onFocusChange(View v, boolean hasFocus) {
         if(!hasFocus) {
             onCalculate();
-            Toast.makeText(getApplicationContext(), "Calculate!", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getApplicationContext(), "Calculate!", Toast.LENGTH_SHORT).show();
         }
     }
     @Override
