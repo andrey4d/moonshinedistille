@@ -2,21 +2,20 @@ package com.danilovav.moonshinedistiller;
 
 /**
  * Created by DanilovAV on 10.03.2017.
+ * Константы
  */
 
 public class Constants {
 
-    public static final String KEY_TEST = "TEST";
-
-    final static public int DEF_ACL_RAW = 60;
-    final static public int DEF_VAL_ACL_RAW = 1000;
-    final static public int DEF_VAL_WATER = 1000;
-    final static public int DEF_INT_NULL = 0;
-    final static public String DEF_VAL_HEADS = "3";
-    final static public String DEF_VAL_AHEADS= "7";
-    final static public String DEF_VAL_BODY  = "70";
-    final static public String DEF_VAL_BTAILS= "5";
-    final static public String DEF_VAL_TAILS = "10";
+    final static public int     DEF_ACL_RAW = 40;
+    final static public int     DEF_VAL_ACL_RAW = 2000;
+    final static public int     DEF_VAL_WATER = 0;
+    final static public int     DEF_INT_NULL = 0;
+    final static public String  DEF_VAL_HEADS = "5";
+    final static public String  DEF_VAL_AHEADS= "5";
+    final static public String  DEF_VAL_BODY  = "70";
+    final static public String  DEF_VAL_BTAILS= "5";
+    final static public String  DEF_VAL_TAILS = "15";
 
     final static public String KEY_MAIN_ACTIVITY = "MAIN_KEY";
     final static public String ALC= "ALC";
@@ -41,13 +40,5 @@ public class Constants {
     final static public String FRACTION_ALC = "FractionAlc";
     final static public String FRACTION_PCT = "FractionPct";
 
-
-
-    public static String formatFloatToString(final float f)
-    {
-                final int i=(int)f;
-        if(f==i)
-            return Integer.toString(i);
-        return Float.toString(f);
-    }
+    final static public String FRACTION_PREFERENCE_NAME= "fraction_data";
 }

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -37,7 +38,7 @@ public class FractionsActivity extends AppCompatActivity implements View.OnClick
 
     private String mDefaultVolFraction;
 
-    SharedPreferences sPref;
+    private SharedPreferences sPref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -141,6 +142,7 @@ public class FractionsActivity extends AppCompatActivity implements View.OnClick
       edtFractionPercent.setOnFocusChangeListener(this);
 
       edtVolume01 = (EditText)findViewById(R.id.etdVolume01);
+         edtVolume01.requestFocus();
       edtVolume02 = (EditText)findViewById(R.id.etdVolume02);
       edtVolume03 = (EditText)findViewById(R.id.etdVolume03);
       edtVolume04 = (EditText)findViewById(R.id.etdVolume04);
@@ -183,7 +185,7 @@ public class FractionsActivity extends AppCompatActivity implements View.OnClick
 }
 
     private void saveData(String key) {
-        sPref = getPreferences(MODE_PRIVATE);
+        sPref = getSharedPreferences(Constants.FRACTION_PREFERENCE_NAME,MODE_PRIVATE);
         SharedPreferences.Editor outState = sPref.edit();
         outState.putString(key+"%",edtFractionPercent.getText().toString());
 
@@ -201,8 +203,8 @@ public class FractionsActivity extends AppCompatActivity implements View.OnClick
         outState.apply();
     }
 
-    void loadData(String key) {
-        sPref = getPreferences(MODE_PRIVATE);
+    private void loadData(String key) {
+        sPref = getSharedPreferences(Constants.FRACTION_PREFERENCE_NAME,MODE_PRIVATE);
         edtFractionPercent.setText(sPref.getString(key+"%",mDefaultVolFraction));
 
         edtVolume01.setText(sPref.getString(key+"V1",""));
@@ -239,6 +241,7 @@ public class FractionsActivity extends AppCompatActivity implements View.OnClick
                 break;
             case R.id.fractionSave:
                 fraction();
+                hidekeybord();
                 finish();
                 break;
         }
@@ -246,8 +249,17 @@ public class FractionsActivity extends AppCompatActivity implements View.OnClick
     }
 
     private void clearFractionData() {
-        getPreferences(MODE_PRIVATE).edit().clear().apply();
+        getSharedPreferences(Constants.FRACTION_PREFERENCE_NAME,MODE_PRIVATE).edit().clear().apply();
         loadData(mAction);
+    }
+
+    private void hidekeybord() {
+        View nView= this.getCurrentFocus();
+
+        if (nView != null) {
+            InputMethodManager inputManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+            inputManager.hideSoftInputFromWindow(nView.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+        }
     }
 
 }

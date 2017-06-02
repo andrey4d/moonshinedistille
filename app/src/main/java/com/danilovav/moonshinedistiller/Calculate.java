@@ -2,6 +2,7 @@ package com.danilovav.moonshinedistiller;
 
 /**
  * Created by DanilovAV on 10.03.2017.
+ * Расчет параметров
  */
 
 public class Calculate {
