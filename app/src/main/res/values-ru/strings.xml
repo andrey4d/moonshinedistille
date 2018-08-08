@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Самогонка перегока :-)</string>
+    <string name="app_name">Самогонка перегонка :-)</string>
     <string name="strPercent">%</string>
     <string name="strMl">мл</string>
     <string name="strSave">Сохранить</string>
@@ -13,7 +13,8 @@
     <string name="strAHeadsFraction">Подголовье</string>
     <string name="strAclRAW">СС, %</string>
     <string name="strAfterHeads">Подголовий</string>
-    <string name="str3Dots">...</string>
+    <string name="str3Dots">&#8230;</string>
+
     <string name="strAfterHeadsBTN">Подголовья</string>
     <string name="strAlc">Спирт</string>
     <string name="strBodyBTN">Тело</string>
